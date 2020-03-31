@@ -26,7 +26,7 @@ class GTCamera: UIViewController {
     
     open var delegate:GTCameraDelegate? = nil
     
-    open var transition:GTCamera_Transition = GTCamera_Transition() {
+    open var translation:GTCamera_Translation = GTCamera_Translation() {
         didSet {
             if isViewLoaded {
                 updateView()
@@ -70,11 +70,11 @@ class GTCamera: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    public convenience init(config: GTCamera_Config, transition: GTCamera_Transition? = nil) {
+    public convenience init(config: GTCamera_Config, translation: GTCamera_Translation? = nil) {
         self.init()
         self.config = config
-        if transition != nil {
-            self.transition = transition!
+        if translation != nil {
+            self.translation = translation!
         }
     }
     
@@ -150,13 +150,13 @@ class GTCamera: UIViewController {
         
         var height:CGFloat = 0
         if config.libraryEnabled {
-            let h = setFooterView(.Library, name: transition.tabTitleLibrary, icon: config.tabButtonIconLibrary)
+            let h = setFooterView(.Library, name: translation.tabTitleLibrary, icon: config.tabButtonIconLibrary)
             if h > height { height = h }
         }
-        let h = setFooterView(.Camera, name: transition.tabTitleCamera, icon: config.tabButtonIconCamera)
+        let h = setFooterView(.Camera, name: translation.tabTitleCamera, icon: config.tabButtonIconCamera)
         if h > height { height = h }
         if config.awsS3Enabled {
-            let h = setFooterView(.AwsS3, name: transition.tabTitleAWSS3, icon: config.tabButtonIconAwsS3)
+            let h = setFooterView(.AwsS3, name: translation.tabTitleAWSS3, icon: config.tabButtonIconAwsS3)
             if h > height { height = h }
         }
         
@@ -306,8 +306,8 @@ class GTCamera: UIViewController {
         let vc = TOCropViewController(image: selectedImage!)
         vc.aspectRatioPreset = .presetSquare
         vc.aspectRatioPickerButtonHidden = true
-        vc.doneButtonTitle = transition.buttonTitleCropDone
-        vc.cancelButtonTitle = transition.buttonTitleCropBack
+        vc.doneButtonTitle = translation.buttonTitleCropDone
+        vc.cancelButtonTitle = translation.buttonTitleCropBack
         vc.delegate = self
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)

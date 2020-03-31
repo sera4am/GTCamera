@@ -1,5 +1,5 @@
 //
-//  GTCamera+Transition.swift
+//  GTCamera+Translation.swift
 //  Pods_GTCamera
 //
 //  Created by 風間剛男 on 2020/03/31.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct GTCamera_Transition {
+public struct GTCamera_Translation {
 
     public var tabTitleLibrary:String = "Library"
     public var tabTitleCamera:String = "Camera"

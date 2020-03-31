@@ -240,15 +240,15 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
         switch manager.flashMode {
         case .auto:
             flashImageView.image = gtCamera.config.cameraFlashButtonAutoIcon
-            flashLabel.text = gtCamera.transition.buttonTitleFlashAuto
+            flashLabel.text = gtCamera.translation.buttonTitleFlashAuto
             break
         case .on:
             flashImageView.image = gtCamera.config.cameraFlashButtonOnIcon
-            flashLabel.text = gtCamera.transition.buttonTitleFlashOn
+            flashLabel.text = gtCamera.translation.buttonTitleFlashOn
             break
         case .off:
             flashImageView.image = gtCamera.config.cameraFlashButtonOffIcon
-            flashLabel.text = gtCamera.transition.buttonTitleFlashOff
+            flashLabel.text = gtCamera.translation.buttonTitleFlashOff
             break
         @unknown default:
             break
@@ -260,14 +260,14 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
                 manager.currentDevice = manager.cameraDevices[.Front]?.first
             }
             positionImageView.image = gtCamera.config.cameraRotateButtonIconFront
-            positionLabel.text = gtCamera.transition.buttonTitleCameraFront
+            positionLabel.text = gtCamera.translation.buttonTitleCameraFront
             break
         case .Back:
             if manager.currentDevice != nil && manager.currentDevice!.position == .front {
                 manager.currentDevice = manager.cameraDevices[.Back]?.first
             }
             positionImageView.image = gtCamera.config.cameraRotateButtonIconBack
-            positionLabel.text = gtCamera.transition.buttonTitleCameraBack
+            positionLabel.text = gtCamera.translation.buttonTitleCameraBack
             break
         }
         

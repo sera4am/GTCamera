@@ -67,7 +67,7 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
         errorLabel.textColor = .gray
         errorIcon.tintColor = .gray
         errorIcon.image = gtCamera.config.awsS3LoadErrorIcon
-        errorLabel.text = gtCamera.transition.messageAWSS3NoImages
+        errorLabel.text = gtCamera.translation.messageAWSS3NoImages
         errorLabel.textAlignment = .center
         
         loadingView.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +99,7 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
         loadingLabel.textColor = .gray
         loadingIcon.tintColor = .gray
         loadingIcon.image = gtCamera.config.awsS3LoadLoadingIcon
-        loadingLabel.text = gtCamera.transition.messageAWSS3Loading
+        loadingLabel.text = gtCamera.translation.messageAWSS3Loading
         loadingLabel.textAlignment = .center
         
         let layout = UICollectionViewFlowLayout()
@@ -135,12 +135,12 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
         if !gtCamera.config.awsS3Enabled {
             loadingView.isHidden = true
             errorView.isHidden = false
-            errorLabel.text = gtCamera.transition.messageAWSS3Invalid
+            errorLabel.text = gtCamera.translation.messageAWSS3Invalid
         }
         if gtCamera.config.awsS3Bucket == nil {
             loadingView.isHidden = true
             errorView.isHidden = false
-            errorLabel.text = gtCamera.transition.messageAWSS3UndefinedSetting
+            errorLabel.text = gtCamera.translation.messageAWSS3UndefinedSetting
             return
         }
         
@@ -157,7 +157,7 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
                 DispatchQueue.main.async {
                     self.loadingView.isHidden = true
                     self.errorView.isHidden = false
-                    self.errorLabel.text = "\(self.gtCamera.transition.messageAWSS3LoadError)\n\n\(error!.localizedDescription)"
+                    self.errorLabel.text = "\(self.gtCamera.translation.messageAWSS3LoadError)\n\n\(error!.localizedDescription)"
                 }
             } else {
                 for obj in output?.contents ?? [] {
@@ -179,7 +179,7 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
                         self.collectionView.reloadData()
                     } else {
                         self.errorView.isHidden = false
-                        self.errorLabel.text = self.gtCamera.transition.messageAWSS3NoImages
+                        self.errorLabel.text = self.gtCamera.translation.messageAWSS3NoImages
                     }
                 }
             }

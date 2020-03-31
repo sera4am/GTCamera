@@ -232,7 +232,7 @@ class GTCamera_ImagePreviewViewController: UIViewController {
             NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: footerView, attribute: .trailing, multiplier: 1, constant: 0)
         ])
         footerView.addSubview(applyButton)
-        applyButton.setTitle(gtCamera.transition.buttonTitleUseThis, for: .normal)
+        applyButton.setTitle(gtCamera.translation.buttonTitleUseThis, for: .normal)
         applyButton.addConstraints([
             NSLayoutConstraint(item: applyButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 200),
             NSLayoutConstraint(item: applyButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)

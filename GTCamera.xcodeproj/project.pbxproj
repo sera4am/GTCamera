@@ -10,7 +10,7 @@
 		235CA9FC604F2073724E9FCD /* Pods_GTCamera_GTCameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */; };
 		75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */; };
 		D821E12124335DD9006E60F3 /* GTCamera+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */; };
-		D821E12224335DD9006E60F3 /* GTCamera+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D821E12024335DD9006E60F3 /* GTCamera+Transition.swift */; };
+		D821E12224335DD9006E60F3 /* GTCamera+Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */; };
 		D89D306924335298008241EB /* SHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306524335297008241EB /* SHCollectionViewCell.xib */; };
 		D89D306A24335298008241EB /* SHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306624335297008241EB /* SHViewController.xib */; };
 		D89D306B24335298008241EB /* SHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306724335298008241EB /* SHCollectionViewCell.swift */; };
@@ -49,7 +49,7 @@
 		A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.release.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.release.xcconfig"; sourceTree = "<group>"; };
 		CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Config.swift"; sourceTree = "<group>"; };
-		D821E12024335DD9006E60F3 /* GTCamera+Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Transition.swift"; sourceTree = "<group>"; };
+		D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Translation.swift"; sourceTree = "<group>"; };
 		D89D306524335297008241EB /* SHCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCollectionViewCell.xib; sourceTree = "<group>"; };
 		D89D306624335297008241EB /* SHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHViewController.xib; sourceTree = "<group>"; };
 		D89D306724335298008241EB /* SHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */,
-				D821E12024335DD9006E60F3 /* GTCamera+Transition.swift */,
+				D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */,
 				D89D306724335298008241EB /* SHCollectionViewCell.swift */,
 				D89D306524335297008241EB /* SHCollectionViewCell.xib */,
 				D89D306824335298008241EB /* SHViewController.swift */,
@@ -363,7 +363,7 @@
 				D8ADD6472433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift in Sources */,
 				D821E12124335DD9006E60F3 /* GTCamera+Config.swift in Sources */,
 				D8ADD63C2433370A00F9D50B /* GTCamera+UIImage.swift in Sources */,
-				D821E12224335DD9006E60F3 /* GTCamera+Transition.swift in Sources */,
+				D821E12224335DD9006E60F3 /* GTCamera+Translation.swift in Sources */,
 				D8ADD6452433370A00F9D50B /* GTCamera.swift in Sources */,
 				D89D306C24335298008241EB /* SHViewController.swift in Sources */,
 				D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */,
