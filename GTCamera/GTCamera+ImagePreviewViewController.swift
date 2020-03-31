@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-import Sharaku
 
 protocol GTCamera_ImagePreviewViewControllerDelegate {
     func ImagePreviewView(onSelect viewController:GTCamera_ImagePreviewViewController, image:UIImage?, url: URL?)

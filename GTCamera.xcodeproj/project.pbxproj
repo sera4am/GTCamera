@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235CA9FC604F2073724E9FCD /* Pods_GTCamera_GTCameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */; };
+		75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */; };
+		D89D306324334EBD008241EB /* GTCamera+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306124334EBD008241EB /* GTCamera+Config.swift */; };
+		D89D306424334EBD008241EB /* GTCamera+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306224334EBD008241EB /* GTCamera+Transition.swift */; };
+		D89D306924335298008241EB /* SHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306524335297008241EB /* SHCollectionViewCell.xib */; };
+		D89D306A24335298008241EB /* SHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306624335297008241EB /* SHViewController.xib */; };
+		D89D306B24335298008241EB /* SHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306724335298008241EB /* SHCollectionViewCell.swift */; };
+		D89D306C24335298008241EB /* SHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306824335298008241EB /* SHViewController.swift */; };
 		D8AD32AA242DCC6300771E81 /* GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; };
 		D8AD32AF242DCC6300771E81 /* GTCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32AE242DCC6300771E81 /* GTCameraTests.swift */; };
 		D8AD32B1242DCC6300771E81 /* GTCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = D8AD32A3242DCC6300771E81 /* GTCamera.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30D8CB4A9ED66DD7C9ADA96E /* Pods-GTCamera-GTCameraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.release.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.release.xcconfig"; sourceTree = "<group>"; };
+		41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTCamera_GTCameraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74885505D1E3EF3C9DD622A4 /* Pods-GTCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.release.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.release.xcconfig"; sourceTree = "<group>"; };
+		CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D89D306124334EBD008241EB /* GTCamera+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GTCamera+Config.swift"; path = "../../GTCamera/GTCamera/GTCamera+Config.swift"; sourceTree = "<group>"; };
+		D89D306224334EBD008241EB /* GTCamera+Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GTCamera+Transition.swift"; path = "../../GTCamera/GTCamera/GTCamera+Transition.swift"; sourceTree = "<group>"; };
+		D89D306524335297008241EB /* SHCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCollectionViewCell.xib; sourceTree = "<group>"; };
+		D89D306624335297008241EB /* SHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHViewController.xib; sourceTree = "<group>"; };
+		D89D306724335298008241EB /* SHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHCollectionViewCell.swift; sourceTree = "<group>"; };
+		D89D306824335298008241EB /* SHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHViewController.swift; sourceTree = "<group>"; };
 		D8AD32A0242DCC6300771E81 /* GTCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AD32A3242DCC6300771E81 /* GTCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCamera.h; sourceTree = "<group>"; };
 		D8AD32A4242DCC6300771E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +89,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AD32AA242DCC6300771E81 /* GTCamera.framework in Frameworks */,
+				235CA9FC604F2073724E9FCD /* Pods_GTCamera_GTCameraTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8C6FB272AA9645C6EB491F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */,
+				41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7C05DEEA218DA608DB7B046 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74885505D1E3EF3C9DD622A4 /* Pods-GTCamera.debug.xcconfig */,
+				A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */,
+				CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */,
+				30D8CB4A9ED66DD7C9ADA96E /* Pods-GTCamera-GTCameraTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D8AD3296242DCC6300771E81 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +123,8 @@
 				D8AD32A2242DCC6300771E81 /* GTCamera */,
 				D8AD32AD242DCC6300771E81 /* GTCameraTests */,
 				D8AD32A1242DCC6300771E81 /* Products */,
+				D7C05DEEA218DA608DB7B046 /* Pods */,
+				C8C6FB272AA9645C6EB491F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +140,12 @@
 		D8AD32A2242DCC6300771E81 /* GTCamera */ = {
 			isa = PBXGroup;
 			children = (
+				D89D306724335298008241EB /* SHCollectionViewCell.swift */,
+				D89D306524335297008241EB /* SHCollectionViewCell.xib */,
+				D89D306824335298008241EB /* SHViewController.swift */,
+				D89D306624335297008241EB /* SHViewController.xib */,
+				D89D306124334EBD008241EB /* GTCamera+Config.swift */,
+				D89D306224334EBD008241EB /* GTCamera+Transition.swift */,
 				D8AD32A3242DCC6300771E81 /* GTCamera.h */,
 				D8ADD6322433370A00F9D50B /* GTCalendar+UIColor.swift */,
 				D8ADD63A2433370A00F9D50B /* GTCamera.h */,
@@ -149,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8AD32B4242DCC6300771E81 /* Build configuration list for PBXNativeTarget "GTCamera" */;
 			buildPhases = (
+				8E038E4DFA0FC79306A2251C /* [CP] Check Pods Manifest.lock */,
 				D8AD329B242DCC6300771E81 /* Headers */,
 				D8AD329C242DCC6300771E81 /* Sources */,
 				D8AD329D242DCC6300771E81 /* Frameworks */,
@@ -167,9 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8AD32B7242DCC6300771E81 /* Build configuration list for PBXNativeTarget "GTCameraTests" */;
 			buildPhases = (
+				0A20CB306CC67208A2210406 /* [CP] Check Pods Manifest.lock */,
 				D8AD32A5242DCC6300771E81 /* Sources */,
 				D8AD32A6242DCC6300771E81 /* Frameworks */,
 				D8AD32A7242DCC6300771E81 /* Resources */,
+				692808F630594B7A7204D2ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +277,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89D306924335298008241EB /* SHCollectionViewCell.xib in Resources */,
+				D89D306A24335298008241EB /* SHViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,17 +291,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A20CB306CC67208A2210406 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GTCamera-GTCameraTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		692808F630594B7A7204D2ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E038E4DFA0FC79306A2251C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GTCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8AD329C242DCC6300771E81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D89D306424334EBD008241EB /* GTCamera+Transition.swift in Sources */,
 				D8ADD6422433370A00F9D50B /* GTCamera+UIView.swift in Sources */,
+				D89D306324334EBD008241EB /* GTCamera+Config.swift in Sources */,
 				D8ADD63E2433370A00F9D50B /* GTCalendar+UIColor.swift in Sources */,
 				D8AD32BC242DCD2700771E81 /* SampleViewController.swift in Sources */,
+				D89D306B24335298008241EB /* SHCollectionViewCell.swift in Sources */,
 				D8ADD6472433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift in Sources */,
 				D8ADD63C2433370A00F9D50B /* GTCamera+UIImage.swift in Sources */,
 				D8ADD6452433370A00F9D50B /* GTCamera.swift in Sources */,
+				D89D306C24335298008241EB /* SHViewController.swift in Sources */,
 				D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */,
 				D8ADD63D2433370A00F9D50B /* GTCamera+ViewController.swift in Sources */,
 				D8ADD6412433370A00F9D50B /* GTCamera+AwsS3ViewController.swift in Sources */,
@@ -396,6 +519,7 @@
 		};
 		D8AD32B5242DCC6300771E81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74885505D1E3EF3C9DD622A4 /* Pods-GTCamera.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -423,6 +547,7 @@
 		};
 		D8AD32B6242DCC6300771E81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +574,7 @@
 		};
 		D8AD32B8242DCC6300771E81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +594,7 @@
 		};
 		D8AD32B9242DCC6300771E81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30D8CB4A9ED66DD7C9ADA96E /* Pods-GTCamera-GTCameraTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,7 +8,6 @@ target 'GTCamera' do
   # Pods for GTCamera
   pod 'AWSS3'
   pod 'TOCropViewController'
-  pod "Sharaku"
   pod 'Kingfisher'
 
   target 'GTCameraTests' do

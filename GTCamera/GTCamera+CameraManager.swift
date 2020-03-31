@@ -107,7 +107,7 @@ class GTCamera_CameraManager: NSObject {
         
         captureSession?.stopRunning()
         try? currentDevice?.lockForConfiguration()
-        guard let captureDeviceInput = try? AVCaptureDeviceInput(device: currentDevice!) else { assert(false, "cannot get capture device input")}
+        guard let captureDeviceInput = try? AVCaptureDeviceInput(device: currentDevice!) else { return }
         captureSession = AVCaptureSession()
         captureSession?.sessionPreset = .high
         captureSession?.addInput(captureDeviceInput)

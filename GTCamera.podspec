@@ -3,9 +3,10 @@ Pod::Spec.new do |spec|
 
   spec.name         = "GTCamera"
   spec.version      = "0.0.1"
-  spec.summary      = "Simple image selection view controller with camera library and aws s3 bucket images"
+  spec.summary      = "Simple image selection view controller with camera library and aws s3 bucket images for swift ios13"
 
   spec.description  = <<-DESC
+			Simple image slecctor view controller with camera library and aws s3 bucket images for swift5 ios13
                    DESC
 
   spec.homepage     = "https://github.com/sera4am/GTCamera"
@@ -16,7 +17,12 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/sera4am/GTCamera.git", :tag => "#{spec.version}" }
 
 
-  spec.source_files  = "GTCamera", "GTCamera/**/*.{swift}"
+  spec.source_files  = "GTCamera", "GTCamera/**/*.{swift,h}"
+
+  spec.dependency 'AWSS3'
+  spec.dependency 'TOCropViewController'
+  spec.dependency 'Kingfisher'
+
   spec.requires_arc = true
   spec.swift_version = "5.0"
 end
