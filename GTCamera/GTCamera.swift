@@ -70,7 +70,7 @@ class GTCamera: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience init(config: GTCamera_Config, transition: GTCamera_Transition? = nil) {
+    public convenience init(config: GTCamera_Config, transition: GTCamera_Transition? = nil) {
         self.init()
         self.config = config
         if transition != nil {
