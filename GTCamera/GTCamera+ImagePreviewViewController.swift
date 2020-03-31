@@ -2,7 +2,7 @@
 //  GTCamera+ImagePreviewViewController.swift
 //  Pods_GTCamera
 //
-//  Created by 風間剛男 on 2020/03/30.
+//  Created by Sera Naoto on 2020/03/30.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
