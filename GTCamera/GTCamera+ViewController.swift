@@ -10,13 +10,13 @@ import UIKit
 
 class GTCamera_ViewController: UIViewController {
 
-    var gtCamera:GTCamera!
+    var gtCamera:GTCameraViewController!
     
     init() {
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience init(_ gtCamera:GTCamera) {
+    convenience init(_ gtCamera:GTCameraViewController) {
         self.init()
         self.gtCamera = gtCamera
     }

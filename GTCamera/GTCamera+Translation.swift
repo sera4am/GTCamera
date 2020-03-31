@@ -2,7 +2,7 @@
 //  GTCamera+Translation.swift
 //  Pods_GTCamera
 //
-//  Created by 風間剛男 on 2020/03/31.
+//  Created by Sera Naoto on 2020/03/31.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
@@ -32,4 +32,7 @@ public struct GTCamera_Translation {
     public var messageAWSS3Invalid:String = "Invalid AWS S3 not available\n[awsS3Enabled turned true with another aws config]"
     public var messageAWSS3UndefinedSetting:String = "Config need Aws Settting\n [awsS3Enabled and awsS3Bucket with awsS3ConfigKey and awsS3PrefixPath if need]"
     
+    
+    public init() {}
+    public init(_ locale:Locale) {}
 }

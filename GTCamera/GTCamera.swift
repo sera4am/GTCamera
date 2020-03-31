@@ -13,10 +13,10 @@ import AVFoundation
 import TOCropViewController
 
 protocol GTCameraDelegate {
-    func gtCameraOn(selectLocalImage gtCamera:GTCamera, image:UIImage?, url:URL?)
+    func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?)
 }
 
-class GTCamera: UIViewController {
+class GTCameraViewController: UIViewController {
 
     public enum ViewType:Int {
         case Library = 1
@@ -66,12 +66,16 @@ class GTCamera: UIViewController {
     
     private var viewPages:[ViewType:UIViewController] = [:]
     
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
     }
     
-    public convenience init(config: GTCamera_Config, translation: GTCamera_Translation? = nil) {
-        self.init()
+    private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    public required init(config: GTCamera_Config, translation: GTCamera_Translation? = nil) {
+        super.init(nibName: nil, bundle: nil)
         self.config = config
         if translation != nil {
             self.translation = translation!
@@ -131,7 +135,7 @@ class GTCamera: UIViewController {
         
     }
     
-    func updateView() {
+    open func updateView() {
         view.backgroundColor = config.backgroundColor
         viewTypeSelectorBar.backgroundColor = config.tabButtonHighLightTextColor
         
@@ -322,7 +326,7 @@ class GTCamera: UIViewController {
     }
 }
 
-extension GTCamera : TOCropViewControllerDelegate {
+extension GTCameraViewController : TOCropViewControllerDelegate {
     func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
         cropViewController.dismiss(animated: false) {
             self.selectedImage = image
@@ -331,17 +335,17 @@ extension GTCamera : TOCropViewControllerDelegate {
     }
 }
 
-extension GTCamera : GTCamera_ImagePreviewViewControllerDelegate {
+extension GTCameraViewController : GTCamera_ImagePreviewViewControllerDelegate {
     func ImagePreviewView(onSelect viewController: GTCamera_ImagePreviewViewController, image: UIImage?, url: URL?) {
         delegate?.gtCameraOn(selectLocalImage: self, image: image, url: url)
     }
 }
 
-extension GTCamera : UINavigationControllerDelegate {
+extension GTCameraViewController : UINavigationControllerDelegate {
     
 }
 
-extension GTCamera : UIImagePickerControllerDelegate {
+extension GTCameraViewController : UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
             guard let image = info[.originalImage] as? UIImage else { return }

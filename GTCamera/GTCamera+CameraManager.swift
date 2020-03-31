@@ -11,7 +11,7 @@ import AVFoundation
 
 class GTCamera_CameraManager: NSObject {
 
-    var gtCamera:GTCamera!
+    var gtCamera:GTCameraViewController!
     var viewController:GTCamera_CameraViewController!
     var captureDevice:AVCaptureDevice? = nil
     
@@ -49,7 +49,7 @@ class GTCamera_CameraManager: NSObject {
     
     private var keyValueObservations = [NSKeyValueObservation]()
     
-    init(_ gtCamera:GTCamera, _ viewController:GTCamera_CameraViewController) {
+    init(_ gtCamera:GTCameraViewController, _ viewController:GTCamera_CameraViewController) {
         self.gtCamera = gtCamera
         self.viewController = viewController
         

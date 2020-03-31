@@ -49,19 +49,19 @@ class GTCamera_ImagePreviewViewController: UIViewController {
     var url:URL? = nil
     var originalImage:UIImage? = nil
     
-    var gtCamera:GTCamera!
+    var gtCamera:GTCameraViewController!
     
     init() {
         super.init(nibName: nil, bundle: nil)
     }
     
-    convenience init(_ gtCamera:GTCamera, _ url:URL) {
+    convenience init(_ gtCamera:GTCameraViewController, _ url:URL) {
         self.init()
         self.gtCamera = gtCamera
         self.url = url
     }
     
-    convenience init(_ gtCamera:GTCamera, _ image:UIImage) {
+    convenience init(_ gtCamera:GTCameraViewController, _ image:UIImage) {
         self.init()
         self.gtCamera = gtCamera
         self.image = image

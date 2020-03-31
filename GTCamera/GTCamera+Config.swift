@@ -2,7 +2,7 @@
 //  GTCamera+Config.swift
 //  Pods_GTCamera
 //
-//  Created by 風間剛男 on 2020/03/31.
+//  Created by Sera Naoto on 2020/03/31.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
@@ -53,4 +53,6 @@ public struct GTCamera_Config {
     
     public var awsS3LoadErrorIcon:UIImage = UIImage(systemName: "cloud.hail.fill")!
     public var awsS3LoadLoadingIcon:UIImage = UIImage(systemName: "clock.fill")!
+    
+    public init() {}
 }
