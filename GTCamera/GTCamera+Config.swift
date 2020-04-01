@@ -54,5 +54,7 @@ public struct GTCamera_Config {
     public var awsS3LoadErrorIcon:UIImage = UIImage(systemName: "cloud.hail.fill")!
     public var awsS3LoadLoadingIcon:UIImage = UIImage(systemName: "clock.fill")!
     
+    public static var Default:GTCamera_Config = GTCamera_Config()
+    
     public init() {}
 }

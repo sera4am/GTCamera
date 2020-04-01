@@ -12,10 +12,7 @@
 		D821E12124335DD9006E60F3 /* GTCamera+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */; };
 		D821E12224335DD9006E60F3 /* GTCamera+Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */; };
 		D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888B3662434445B00E5B161 /* GTCameraViewController.swift */; };
-		D89D306924335298008241EB /* SHCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306524335297008241EB /* SHCollectionViewCell.xib */; };
-		D89D306A24335298008241EB /* SHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D89D306624335297008241EB /* SHViewController.xib */; };
-		D89D306B24335298008241EB /* SHCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306724335298008241EB /* SHCollectionViewCell.swift */; };
-		D89D306C24335298008241EB /* SHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89D306824335298008241EB /* SHViewController.swift */; };
+		D888B36A2434516800E5B161 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D888B36C2434516800E5B161 /* Localizable.strings */; };
 		D8AD32AA242DCC6300771E81 /* GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; };
 		D8AD32AF242DCC6300771E81 /* GTCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32AE242DCC6300771E81 /* GTCameraTests.swift */; };
 		D8AD32BC242DCD2700771E81 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32BB242DCD2700771E81 /* SampleViewController.swift */; };
@@ -50,10 +47,8 @@
 		D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Config.swift"; sourceTree = "<group>"; };
 		D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Translation.swift"; sourceTree = "<group>"; };
 		D888B3662434445B00E5B161 /* GTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTCameraViewController.swift; sourceTree = "<group>"; };
-		D89D306524335297008241EB /* SHCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHCollectionViewCell.xib; sourceTree = "<group>"; };
-		D89D306624335297008241EB /* SHViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHViewController.xib; sourceTree = "<group>"; };
-		D89D306724335298008241EB /* SHCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHCollectionViewCell.swift; sourceTree = "<group>"; };
-		D89D306824335298008241EB /* SHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHViewController.swift; sourceTree = "<group>"; };
+		D888B36B2434516800E5B161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D888B36D2434516A00E5B161 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D8AD32A0242DCC6300771E81 /* GTCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AD32A4242DCC6300771E81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8AD32A9242DCC6300771E81 /* GTCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GTCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,10 +134,6 @@
 				D888B3662434445B00E5B161 /* GTCameraViewController.swift */,
 				D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */,
 				D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */,
-				D89D306724335298008241EB /* SHCollectionViewCell.swift */,
-				D89D306524335297008241EB /* SHCollectionViewCell.xib */,
-				D89D306824335298008241EB /* SHViewController.swift */,
-				D89D306624335297008241EB /* SHViewController.xib */,
 				D8ADD6322433370A00F9D50B /* GTCalendar+UIColor.swift */,
 				D8ADD6352433370A00F9D50B /* GTCamera+AwsS3ViewController.swift */,
 				D8ADD6382433370A00F9D50B /* GTCamera+CameraManager.swift */,
@@ -153,6 +144,7 @@
 				D8ADD6362433370A00F9D50B /* GTCamera+UIView.swift */,
 				D8ADD6312433370A00F9D50B /* GTCamera+ViewController.swift */,
 				D8AD32A4242DCC6300771E81 /* Info.plist */,
+				D888B36C2434516800E5B161 /* Localizable.strings */,
 			);
 			path = GTCamera;
 			sourceTree = "<group>";
@@ -252,6 +244,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = D8AD3296242DCC6300771E81;
 			productRefGroup = D8AD32A1242DCC6300771E81 /* Products */;
@@ -269,8 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D89D306924335298008241EB /* SHCollectionViewCell.xib in Resources */,
-				D89D306A24335298008241EB /* SHViewController.xib in Resources */,
+				D888B36A2434516800E5B161 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,12 +347,10 @@
 				D8ADD6422433370A00F9D50B /* GTCamera+UIView.swift in Sources */,
 				D8ADD63E2433370A00F9D50B /* GTCalendar+UIColor.swift in Sources */,
 				D8AD32BC242DCD2700771E81 /* SampleViewController.swift in Sources */,
-				D89D306B24335298008241EB /* SHCollectionViewCell.swift in Sources */,
 				D8ADD6472433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift in Sources */,
 				D821E12124335DD9006E60F3 /* GTCamera+Config.swift in Sources */,
 				D8ADD63C2433370A00F9D50B /* GTCamera+UIImage.swift in Sources */,
 				D821E12224335DD9006E60F3 /* GTCamera+Translation.swift in Sources */,
-				D89D306C24335298008241EB /* SHViewController.swift in Sources */,
 				D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */,
 				D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */,
 				D8ADD63D2433370A00F9D50B /* GTCamera+ViewController.swift in Sources */,
@@ -387,6 +377,18 @@
 			targetProxy = D8AD32AB242DCC6300771E81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D888B36C2434516800E5B161 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D888B36B2434516800E5B161 /* en */,
+				D888B36D2434516A00E5B161 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D8AD32B2242DCC6300771E81 /* Debug */ = {

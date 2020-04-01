@@ -26,7 +26,7 @@ public class GTCameraViewController: UIViewController {
     
     open var delegate:GTCameraDelegate? = nil
     
-    open var translation:GTCamera_Translation = GTCamera_Translation() {
+    open var translation:GTCamera_Translation = GTCamera_Translation.Default {
         didSet {
             if isViewLoaded {
                 updateView()
@@ -34,7 +34,7 @@ public class GTCameraViewController: UIViewController {
         }
     }
     
-    open var config:GTCamera_Config = GTCamera_Config() {
+    open var config:GTCamera_Config = GTCamera_Config.Default {
         didSet {
             if isViewLoaded {
                 updateView()

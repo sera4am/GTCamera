@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  GTCamera
+
+  Created by Sera Naoto on 2020/04/01.
+  Copyright © 2020 SHIJISHA. All rights reserved.
+*/
+
+tabTitleLibrary = "アルバム";
+tabTitleCamera = "写真を撮る";
+tabTitleAWSS3 = "アップロード済み";
+buttonTitleFlashAuto = "自動";
+buttonTitleFlashOn = "オン";
+buttonTitleFlashOff = "オフ";
+buttonTitleCameraFront? = "フロント";
+buttonTitleCameraBack? = "バック";
+buttonTitleUseThis = "この写真を使用する";
+buttonTitleCropBack = "キャンセル";
+buttonTitleCropDone = "完了";
+messageAWSS3NoImages = "画像がありません";
+messageAWSS3LoadError = "読み込みエラー";
+messageAWSS3Loading = "読込中...";
+messageAWSS3Invalid = "設定に不足があるため表示できません(awsS3Bucketなど...)";
+messageAWSS3UndefinedSetting = "設定に不足があるため表示できません(awsS3Bucketなど...)";

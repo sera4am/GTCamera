@@ -32,6 +32,7 @@ public struct GTCamera_Translation {
     public var messageAWSS3Invalid:String = "Invalid AWS S3 not available\n[awsS3Enabled turned true with another aws config]"
     public var messageAWSS3UndefinedSetting:String = "Config need Aws Settting\n [awsS3Enabled and awsS3Bucket with awsS3ConfigKey and awsS3PrefixPath if need]"
     
+    public static var Default:GTCamera_Translation = GTCamera_Translation()
     
     public init() {}
     public init(_ locale:Locale) {}
