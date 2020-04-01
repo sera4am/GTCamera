@@ -12,11 +12,11 @@ import AWSS3
 import AVFoundation
 import TOCropViewController
 
-protocol GTCameraDelegate {
+public protocol GTCameraDelegate {
     func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?)
 }
 
-class GTCameraViewController: UIViewController {
+public class GTCameraViewController: UIViewController {
 
     public enum ViewType:Int {
         case Library = 1
@@ -86,13 +86,13 @@ class GTCameraViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         print(Locale.current)
         initView()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         footerView.isHidden = (UIScreen.main.bounds.width > UIScreen.main.bounds.height)
     }
     
@@ -327,7 +327,7 @@ class GTCameraViewController: UIViewController {
 }
 
 extension GTCameraViewController : TOCropViewControllerDelegate {
-    func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
+    public func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
         cropViewController.dismiss(animated: false) {
             self.selectedImage = image
             self.secondPreviewImage(false)
@@ -346,7 +346,7 @@ extension GTCameraViewController : UINavigationControllerDelegate {
 }
 
 extension GTCameraViewController : UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
             guard let image = info[.originalImage] as? UIImage else { return }
             guard let url = info[.imageURL] as? URL else { return }

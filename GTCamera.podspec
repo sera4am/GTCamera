@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GTCamera"
-  spec.version      = "0.1.1"
+  spec.version      = "0.1.2"
   spec.summary      = "Simple image selection view controller with camera library and aws s3 bucket images for swift ios13"
 
   spec.description  = <<-DESC
@@ -18,6 +18,7 @@ Pod::Spec.new do |spec|
 
 
   spec.source_files  = "GTCamera", "GTCamera/**/*.{swift,h}"
+  spec.resources = ["GTCamera/**/*.xib"]
 
   spec.dependency 'AWSS3'
   spec.dependency 'TOCropViewController'

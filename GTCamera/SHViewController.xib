@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +26,8 @@
                                 <constraint firstAttribute="height" constant="30" id="Pd3-Sr-LNh"/>
                                 <constraint firstAttribute="width" secondItem="UMQ-jD-qtt" secondAttribute="height" multiplier="1:1" id="dVI-W1-c33"/>
                             </constraints>
-                            <state key="normal" image="ic_check"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="checkmark" catalog="system"/>
                             <connections>
                                 <action selector="doneButtontapped" destination="-1" eventType="touchUpInside" id="ESb-jg-Nma"/>
                             </connections>
@@ -40,7 +37,8 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="1yM-fz-Bt9" secondAttribute="height" multiplier="1:1" id="obz-Sr-xsZ"/>
                             </constraints>
-                            <state key="normal" image="ic_close"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="xmark" catalog="system"/>
                             <connections>
                                 <action selector="closeButtonTapped" destination="-1" eventType="touchUpInside" id="JN6-fw-xYX"/>
                             </connections>
@@ -74,7 +72,7 @@
                     </connections>
                 </collectionView>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dv8-Gc-a6m">
-                    <rect key="frame" x="-0.5" y="64" width="375" height="375"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="dv8-Gc-a6m" secondAttribute="height" multiplier="1:1" id="0eE-mX-eGX"/>
@@ -98,6 +96,7 @@
                 <constraint firstItem="7L6-vm-VNv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xGo-R8-nQH"/>
                 <constraint firstItem="dv8-Gc-a6m" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="xqH-Ml-hGB"/>
             </constraints>
+            <point key="canvasLocation" x="132" y="155"/>
         </view>
         <swipeGestureRecognizer direction="left" id="2ch-Qc-nFL">
             <connections>
@@ -111,7 +110,7 @@
         </swipeGestureRecognizer>
     </objects>
     <resources>
-        <image name="ic_check" width="48" height="48"/>
-        <image name="ic_close" width="48" height="48"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
