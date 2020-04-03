@@ -61,10 +61,11 @@ class GTCamera_ImagePreviewViewController: UIViewController {
         self.url = url
     }
     
-    convenience init(_ gtCamera:GTCameraViewController, _ image:UIImage) {
+    convenience init(_ gtCamera:GTCameraViewController, _ image:UIImage, _ url:URL? = nil) {
         self.init()
         self.gtCamera = gtCamera
         self.image = image
+        self.url = url
         self.originalImage = image.copy() as? UIImage
     }
     
@@ -252,6 +253,7 @@ class GTCamera_ImagePreviewViewController: UIViewController {
             editButton.isHidden = true
             continuebutton.isHidden = false
         }
+        editButton.isHidden = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onScrollTapped(_:)))
         scrollView.addGestureRecognizer(tapGesture)
@@ -292,7 +294,6 @@ class GTCamera_ImagePreviewViewController: UIViewController {
     }
     
     @objc func onClose(_ sender:Any?) {
-        dismiss(animated: true, completion: nil)
         dismiss(animated: true) {
             self.delegate?.ImagePreviewView(onCancel: self, image: self.image, url: self.url)
         }
@@ -305,10 +306,12 @@ class GTCamera_ImagePreviewViewController: UIViewController {
     }
     
     @objc func onEdit(_ sender:Any?) {
+        /*
         if image == nil { return }
         let vc = SHViewController(image: image!)
         vc.delegate = self
         present(vc, animated: true, completion: nil)
+         */
     }
     
     @objc func onUndo(_ sender:Any?) {
@@ -325,6 +328,7 @@ class GTCamera_ImagePreviewViewController: UIViewController {
     }
 }
 
+/*
 extension GTCamera_ImagePreviewViewController : SHViewControllerDelegate {
     func shViewControllerImageDidFilter(image: UIImage) {
         self.image = image
@@ -333,10 +337,9 @@ extension GTCamera_ImagePreviewViewController : SHViewControllerDelegate {
     }
     
     func shViewControllerDidCancel() {
-        
     }
-    
 }
+*/
 
 extension GTCamera_ImagePreviewViewController : UIScrollViewDelegate {
     

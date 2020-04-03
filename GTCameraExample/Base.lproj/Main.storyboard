@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fEE-cl-946">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="h2q-Bx-TKJ">
+            <objects>
+                <navigationController id="fEE-cl-946" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OK3-m1-RtZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EO5-BX-1pG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IE2-K0-Z84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-745" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GTCameraExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaU-ig-QfO">
+                                <rect key="frame" x="179.5" y="104" width="55" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Simply"/>
+                                <connections>
+                                    <action selector="onSimple:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXS-3o-vzE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITz-Yl-IiN">
+                                <rect key="frame" x="99" y="179" width="216" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Customize default settings"/>
+                                <connections>
+                                    <action selector="onCustomize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9k3-Tr-eSe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7s-tL-ufC">
+                                <rect key="frame" x="8" y="221" width="398" height="50.5"/>
+                                <string key="text">Choise this button to open the camera view afer changing the default settings.
+After this, choice "Simply" button again to apply settings this.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRc-ie-ddX">
+                                <rect key="frame" x="8" y="329.5" width="398" height="33.5"/>
+                                <string key="text">Reset customized setting.
+After choice "Simply" button again.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice this button to open the basic camera view with library" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-5a-1Kf">
+                                <rect key="frame" x="8" y="146" width="398" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VT2-Xt-RFd">
+                                <rect key="frame" x="119" y="287.5" width="176" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Reset default settings"/>
+                                <connections>
+                                    <action selector="onResetDefaultSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNt-L8-njG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice this button to open the camera view with enabled AWS S3. See &quot;ViewController.swift&quot; detail." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rl-h7-l60">
+                                <rect key="frame" x="8" y="421" width="398" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjQ-di-w3e">
+                                <rect key="frame" x="158" y="379" width="98" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="With aws s3"/>
+                                <connections>
+                                    <action selector="onAwsS3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d45-vn-a16"/>
+                                    <action selector="onResetDefaultSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a5h-vx-rGo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ATTENTION!! This button crash without aws credential setting." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-4w-x4s">
+                                <rect key="frame" x="8" y="462.5" width="398" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice this button to open preview view alone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXg-s5-pUj">
+                                <rect key="frame" x="8" y="561.5" width="398" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8i-7K-IWx">
+                                <rect key="frame" x="130.5" y="519.5" width="153" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="PreviewView Alone"/>
+                                <connections>
+                                    <action selector="onPreview:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPT-3P-lIH"/>
+                                    <action selector="onResetDefaultSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLp-FC-mrI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ey2-5a-1Kf" secondAttribute="trailing" constant="8" id="3gK-md-sl2"/>
+                            <constraint firstItem="rXg-s5-pUj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="5TL-vp-Z4r"/>
+                            <constraint firstItem="Q7s-tL-ufC" firstAttribute="top" secondItem="ITz-Yl-IiN" secondAttribute="bottom" constant="8" id="Dtw-4O-tXe"/>
+                            <constraint firstItem="dRc-ie-ddX" firstAttribute="top" secondItem="VT2-Xt-RFd" secondAttribute="bottom" constant="8" id="FRe-Im-ixF"/>
+                            <constraint firstItem="3rl-h7-l60" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="FfQ-Vk-VVW"/>
+                            <constraint firstItem="2Fd-4w-x4s" firstAttribute="top" secondItem="3rl-h7-l60" secondAttribute="bottom" constant="8" id="GTc-uV-ZYF"/>
+                            <constraint firstItem="qaU-ig-QfO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K9R-8c-7dr"/>
+                            <constraint firstItem="2Fd-4w-x4s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Mj9-NS-L6f"/>
+                            <constraint firstItem="VT2-Xt-RFd" firstAttribute="top" secondItem="Q7s-tL-ufC" secondAttribute="bottom" constant="16" id="RFn-Wf-lMB"/>
+                            <constraint firstItem="H8i-7K-IWx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TPM-pX-QQV"/>
+                            <constraint firstItem="Q7s-tL-ufC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="VxB-45-AF4"/>
+                            <constraint firstAttribute="trailing" secondItem="2Fd-4w-x4s" secondAttribute="trailing" constant="8" id="Xlm-MD-URv"/>
+                            <constraint firstItem="ITz-Yl-IiN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c7m-MY-zYH"/>
+                            <constraint firstItem="rXg-s5-pUj" firstAttribute="top" secondItem="H8i-7K-IWx" secondAttribute="bottom" constant="8" id="eiu-lb-mHm"/>
+                            <constraint firstItem="VT2-Xt-RFd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gJt-gq-bV8"/>
+                            <constraint firstItem="ey2-5a-1Kf" firstAttribute="top" secondItem="qaU-ig-QfO" secondAttribute="bottom" constant="8" id="hGK-fv-Nw3"/>
+                            <constraint firstItem="HjQ-di-w3e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kG3-sx-WDv"/>
+                            <constraint firstItem="ITz-Yl-IiN" firstAttribute="top" secondItem="ey2-5a-1Kf" secondAttribute="bottom" constant="16" id="meG-ty-kQJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rXg-s5-pUj" secondAttribute="trailing" constant="8" id="oLM-pt-SWk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3rl-h7-l60" secondAttribute="trailing" constant="8" id="qtw-UC-bvS"/>
+                            <constraint firstItem="qaU-ig-QfO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rBn-Yl-urx"/>
+                            <constraint firstItem="ey2-5a-1Kf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="rOD-hg-cig"/>
+                            <constraint firstItem="HjQ-di-w3e" firstAttribute="top" secondItem="dRc-ie-ddX" secondAttribute="bottom" constant="16" id="thW-TJ-CjH"/>
+                            <constraint firstItem="3rl-h7-l60" firstAttribute="top" secondItem="HjQ-di-w3e" secondAttribute="bottom" constant="8" id="tjj-1g-J1C"/>
+                            <constraint firstItem="dRc-ie-ddX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="utc-Dx-mq5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dRc-ie-ddX" secondAttribute="trailing" constant="8" id="x0E-xv-oDx"/>
+                            <constraint firstAttribute="trailing" secondItem="Q7s-tL-ufC" secondAttribute="trailing" constant="8" id="y23-5a-evZ"/>
+                            <constraint firstItem="H8i-7K-IWx" firstAttribute="top" secondItem="2Fd-4w-x4s" secondAttribute="bottom" constant="16" id="ynS-E8-iJx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="A3d-sf-ltO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>

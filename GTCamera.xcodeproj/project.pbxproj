@@ -24,6 +24,16 @@
 		D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ADD6372433370A00F9D50B /* GTCamera+String.swift */; };
 		D8ADD6442433370A00F9D50B /* GTCamera+CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ADD6382433370A00F9D50B /* GTCamera+CameraManager.swift */; };
 		D8ADD6472433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ADD63B2433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift */; };
+		D8BF1F9A243710A700D4B9C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF1F99243710A700D4B9C6 /* AppDelegate.swift */; };
+		D8BF1F9C243710A700D4B9C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF1F9B243710A700D4B9C6 /* SceneDelegate.swift */; };
+		D8BF1F9E243710A700D4B9C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF1F9D243710A700D4B9C6 /* ViewController.swift */; };
+		D8BF1FA1243710A700D4B9C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BF1F9F243710A700D4B9C6 /* Main.storyboard */; };
+		D8BF1FA3243710A900D4B9C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BF1FA2243710A900D4B9C6 /* Assets.xcassets */; };
+		D8BF1FA6243710AA00D4B9C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BF1FA4243710A900D4B9C6 /* LaunchScreen.storyboard */; };
+		D8BF1FAB2437211400D4B9C6 /* GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; };
+		D8BF1FAC2437211400D4B9C6 /* GTCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8BF1FB724372DBD00D4B9C6 /* GTCameraPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */; };
+		DAD0AA4D56F28AE1188DFE83 /* Pods_GTCameraExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,13 +44,37 @@
 			remoteGlobalIDString = D8AD329F242DCC6300771E81;
 			remoteInfo = GTCamera;
 		};
+		D8BF1FAD2437211400D4B9C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8AD3297242DCC6300771E81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8AD329F242DCC6300771E81;
+			remoteInfo = GTCamera;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D8BF1FAF2437211400D4B9C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8BF1FAC2437211400D4B9C6 /* GTCamera.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1CD72CEE74091D5EE8802399 /* Pods-GTCameraExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCameraExample.release.xcconfig"; path = "Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample.release.xcconfig"; sourceTree = "<group>"; };
 		2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30D8CB4A9ED66DD7C9ADA96E /* Pods-GTCamera-GTCameraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.release.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.release.xcconfig"; sourceTree = "<group>"; };
 		41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTCamera_GTCameraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GTCameraExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74885505D1E3EF3C9DD622A4 /* Pods-GTCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		8300B5A3FA511BEE4F4F40D6 /* Pods-GTCameraExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCameraExample.debug.xcconfig"; path = "Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample.debug.xcconfig"; sourceTree = "<group>"; };
 		A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.release.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.release.xcconfig"; sourceTree = "<group>"; };
 		CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+Config.swift"; sourceTree = "<group>"; };
@@ -61,6 +95,17 @@
 		D8ADD6372433370A00F9D50B /* GTCamera+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+String.swift"; sourceTree = "<group>"; };
 		D8ADD6382433370A00F9D50B /* GTCamera+CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+CameraManager.swift"; sourceTree = "<group>"; };
 		D8ADD63B2433370A00F9D50B /* GTCamera+ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCamera+ImagePreviewViewController.swift"; sourceTree = "<group>"; };
+		D8BF1F97243710A700D4B9C6 /* GTCameraExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTCameraExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8BF1F99243710A700D4B9C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8BF1F9B243710A700D4B9C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D8BF1F9D243710A700D4B9C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8BF1FA0243710A700D4B9C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8BF1FA2243710A900D4B9C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8BF1FA5243710A900D4B9C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8BF1FA7243710AA00D4B9C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8BF1FB02437219000D4B9C6 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8BF1FB12437219000D4B9C6 /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTCameraPreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +126,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8BF1F94243710A700D4B9C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8BF1FAB2437211400D4B9C6 /* GTCamera.framework in Frameworks */,
+				DAD0AA4D56F28AE1188DFE83 /* Pods_GTCameraExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		C8C6FB272AA9645C6EB491F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8BF1FB02437219000D4B9C6 /* AWSCore.framework */,
+				D8BF1FB12437219000D4B9C6 /* AWSS3.framework */,
 				2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */,
 				41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */,
+				5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,6 +157,8 @@
 				A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */,
 				CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */,
 				30D8CB4A9ED66DD7C9ADA96E /* Pods-GTCamera-GTCameraTests.release.xcconfig */,
+				8300B5A3FA511BEE4F4F40D6 /* Pods-GTCameraExample.debug.xcconfig */,
+				1CD72CEE74091D5EE8802399 /* Pods-GTCameraExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -110,6 +169,7 @@
 				D8AD32BA242DCD1500771E81 /* Simple */,
 				D8AD32A2242DCC6300771E81 /* GTCamera */,
 				D8AD32AD242DCC6300771E81 /* GTCameraTests */,
+				D8BF1F98243710A700D4B9C6 /* GTCameraExample */,
 				D8AD32A1242DCC6300771E81 /* Products */,
 				D7C05DEEA218DA608DB7B046 /* Pods */,
 				C8C6FB272AA9645C6EB491F8 /* Frameworks */,
@@ -121,6 +181,7 @@
 			children = (
 				D8AD32A0242DCC6300771E81 /* GTCamera.framework */,
 				D8AD32A9242DCC6300771E81 /* GTCameraTests.xctest */,
+				D8BF1F97243710A700D4B9C6 /* GTCameraExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +202,7 @@
 				D8ADD6362433370A00F9D50B /* GTCamera+UIView.swift */,
 				D8ADD6312433370A00F9D50B /* GTCamera+ViewController.swift */,
 				D8AD32A4242DCC6300771E81 /* Info.plist */,
+				D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */,
 			);
 			path = GTCamera;
 			sourceTree = "<group>";
@@ -160,6 +222,20 @@
 				D8AD32BB242DCD2700771E81 /* SampleViewController.swift */,
 			);
 			path = Simple;
+			sourceTree = "<group>";
+		};
+		D8BF1F98243710A700D4B9C6 /* GTCameraExample */ = {
+			isa = PBXGroup;
+			children = (
+				D8BF1F99243710A700D4B9C6 /* AppDelegate.swift */,
+				D8BF1F9B243710A700D4B9C6 /* SceneDelegate.swift */,
+				D8BF1F9D243710A700D4B9C6 /* ViewController.swift */,
+				D8BF1F9F243710A700D4B9C6 /* Main.storyboard */,
+				D8BF1FA2243710A900D4B9C6 /* Assets.xcassets */,
+				D8BF1FA4243710A900D4B9C6 /* LaunchScreen.storyboard */,
+				D8BF1FA7243710AA00D4B9C6 /* Info.plist */,
+			);
+			path = GTCameraExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +290,27 @@
 			productReference = D8AD32A9242DCC6300771E81 /* GTCameraTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D8BF1F96243710A700D4B9C6 /* GTCameraExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8BF1FAA243710AA00D4B9C6 /* Build configuration list for PBXNativeTarget "GTCameraExample" */;
+			buildPhases = (
+				46CD5C3E116AAD797CE940C5 /* [CP] Check Pods Manifest.lock */,
+				D8BF1F93243710A700D4B9C6 /* Sources */,
+				D8BF1F94243710A700D4B9C6 /* Frameworks */,
+				D8BF1F95243710A700D4B9C6 /* Resources */,
+				D8BF1FAF2437211400D4B9C6 /* Embed Frameworks */,
+				A394DC7DC0435EFE8F6F52CF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8BF1FAE2437211400D4B9C6 /* PBXTargetDependency */,
+			);
+			name = GTCameraExample;
+			productName = GTCameraExample;
+			productReference = D8BF1F97243710A700D4B9C6 /* GTCameraExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -229,6 +326,9 @@
 						LastSwiftMigration = 1140;
 					};
 					D8AD32A8242DCC6300771E81 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					D8BF1F96243710A700D4B9C6 = {
 						CreatedOnToolsVersion = 11.4;
 					};
 				};
@@ -248,6 +348,7 @@
 			targets = (
 				D8AD329F242DCC6300771E81 /* GTCamera */,
 				D8AD32A8242DCC6300771E81 /* GTCameraTests */,
+				D8BF1F96243710A700D4B9C6 /* GTCameraExample */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +365,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BF1F95243710A700D4B9C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8BF1FA6243710AA00D4B9C6 /* LaunchScreen.storyboard in Resources */,
+				D8BF1FA3243710A900D4B9C6 /* Assets.xcassets in Resources */,
+				D8BF1FA1243710A700D4B9C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +397,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GTCamera-GTCameraTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46CD5C3E116AAD797CE940C5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GTCameraExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -331,6 +464,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A394DC7DC0435EFE8F6F52CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -345,6 +495,7 @@
 				D821E12124335DD9006E60F3 /* GTCamera+Config.swift in Sources */,
 				D8ADD63C2433370A00F9D50B /* GTCamera+UIImage.swift in Sources */,
 				D821E12224335DD9006E60F3 /* GTCamera+Translation.swift in Sources */,
+				D8BF1FB724372DBD00D4B9C6 /* GTCameraPreviewViewController.swift in Sources */,
 				D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */,
 				D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */,
 				D8ADD63D2433370A00F9D50B /* GTCamera+ViewController.swift in Sources */,
@@ -362,6 +513,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8BF1F93243710A700D4B9C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8BF1F9E243710A700D4B9C6 /* ViewController.swift in Sources */,
+				D8BF1F9A243710A700D4B9C6 /* AppDelegate.swift in Sources */,
+				D8BF1F9C243710A700D4B9C6 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -370,7 +531,31 @@
 			target = D8AD329F242DCC6300771E81 /* GTCamera */;
 			targetProxy = D8AD32AB242DCC6300771E81 /* PBXContainerItemProxy */;
 		};
+		D8BF1FAE2437211400D4B9C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8AD329F242DCC6300771E81 /* GTCamera */;
+			targetProxy = D8BF1FAD2437211400D4B9C6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8BF1F9F243710A700D4B9C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8BF1FA0243710A700D4B9C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8BF1FA4243710A900D4B9C6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8BF1FA5243710A900D4B9C6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D8AD32B2242DCC6300771E81 /* Debug */ = {
@@ -588,6 +773,44 @@
 			};
 			name = Release;
 		};
+		D8BF1FA8243710AA00D4B9C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8300B5A3FA511BEE4F4F40D6 /* Pods-GTCameraExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = GTCameraExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.4am.GTCameraExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8BF1FA9243710AA00D4B9C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CD72CEE74091D5EE8802399 /* Pods-GTCameraExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = GTCameraExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.4am.GTCameraExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,6 +837,15 @@
 			buildConfigurations = (
 				D8AD32B8242DCC6300771E81 /* Debug */,
 				D8AD32B9242DCC6300771E81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8BF1FAA243710AA00D4B9C6 /* Build configuration list for PBXNativeTarget "GTCameraExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8BF1FA8243710AA00D4B9C6 /* Debug */,
+				D8BF1FA9243710AA00D4B9C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

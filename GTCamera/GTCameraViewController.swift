@@ -308,7 +308,7 @@ public class GTCameraViewController: UIViewController {
     func firstCropImage() {
         if selectedImage == nil { return }
         let vc = TOCropViewController(image: selectedImage!)
-        vc.aspectRatioPreset = .presetSquare
+        vc.aspectRatioPreset = .preset16x9
         vc.aspectRatioPickerButtonHidden = true
         vc.doneButtonTitle = translation.buttonTitleCropDone
         vc.cancelButtonTitle = translation.buttonTitleCropBack
@@ -319,7 +319,7 @@ public class GTCameraViewController: UIViewController {
     
     func secondPreviewImage(_ animated:Bool = true) {
         if selectedImage == nil { return }
-        let vc = GTCamera_ImagePreviewViewController(self, selectedImage!)
+        let vc = GTCamera_ImagePreviewViewController(self, selectedImage!, selectedUrl)
         vc.delegate = self
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: animated, completion: nil)

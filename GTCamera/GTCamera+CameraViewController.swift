@@ -70,14 +70,6 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
         default:
             break
         }
-        /*
-        if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
-            manager.previewLayer?.connection?.videoOrientation = .landscapeRight
-        } else {
-            manager.previewLayer?.connection?.videoOrientation = .portrait
-        }
-        */
-//        manager.focusSquareView.frame = CGRect(x: (previewView.frame.width / 2) - 32, y: (previewView.frame.height / 2) - 32, width: 64, height: 64)
         manager.updateFocus(nil)
     }
     

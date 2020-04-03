@@ -191,11 +191,9 @@ extension GTCamera_AwsS3ViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GTCamera_AWSS3CollectionCell else { return }
         guard let image = cell.imageView.image else { return }
-        let vc = GTCamera_ImagePreviewViewController(gtCamera, image)
-        vc.viewType = .Preview
-        vc.modalPresentationStyle = .fullScreen
-        vc.delegate = self
-        present(vc, animated: true, completion: nil)
+        gtCamera.selectedImage = image
+        gtCamera.selectedUrl = cell.url
+        gtCamera.secondPreviewImage(true)
     }
 }
 
@@ -203,7 +201,7 @@ extension GTCamera_AwsS3ViewController : GTCamera_ImagePreviewViewControllerDele
     func ImagePreviewView(onContinue viewController: GTCamera_ImagePreviewViewController, image: UIImage?, url: URL?) {
         gtCamera.selectedImage = image
         gtCamera.selectedUrl = url
-        gtCamera.firstCropImage()
+        gtCamera.secondPreviewImage()
     }
 }
 
@@ -218,9 +216,7 @@ extension GTCamera_AwsS3ViewController : UICollectionViewDataSource {
         cell.imageView.kf.indicatorType = .activity
         cell.imageView.clipsToBounds = true
         let url = imageUrl[indexPath.row]
-        
-        print(indexPath, url)
-        
+        cell.url = url
         cell.imageView.kf.setImage(with: url, options: [.cacheOriginalImage])
         return cell
     }
@@ -239,6 +235,7 @@ extension GTCamera_AwsS3ViewController : UICollectionViewDelegateFlowLayout {
 class GTCamera_AWSS3CollectionCell : UICollectionViewCell {
     
     var imageView:UIImageView = UIImageView()
+    var url:URL? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
