@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  GTCameraExample
 //
-//  Created by 風間剛男 on 2020/04/03.
+//  Created by Sera Naoto on 2020/04/03.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 

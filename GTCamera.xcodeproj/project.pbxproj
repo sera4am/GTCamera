@@ -190,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				D888B3662434445B00E5B161 /* GTCameraViewController.swift */,
+				D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */,
 				D821E11F24335DD9006E60F3 /* GTCamera+Config.swift */,
 				D821E12024335DD9006E60F3 /* GTCamera+Translation.swift */,
 				D8ADD6322433370A00F9D50B /* GTCalendar+UIColor.swift */,
@@ -202,7 +203,6 @@
 				D8ADD6362433370A00F9D50B /* GTCamera+UIView.swift */,
 				D8ADD6312433370A00F9D50B /* GTCamera+ViewController.swift */,
 				D8AD32A4242DCC6300771E81 /* Info.plist */,
-				D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */,
 			);
 			path = GTCamera;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QKEAV9NH26;
 				INFOPLIST_FILE = GTCameraExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -798,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QKEAV9NH26;
 				INFOPLIST_FILE = GTCameraExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

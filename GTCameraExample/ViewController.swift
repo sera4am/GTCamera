@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  GTCameraExample
 //
-//  Created by 風間剛男 on 2020/04/03.
+//  Created by Sera Naoto on 2020/04/03.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
@@ -74,15 +74,15 @@ extension ViewController : GTCameraPreviewViewControllerDelegate {
         case .Back, .Close:
             return true
         case .Delete:
-            let ac = UIAlertController(title: "本当に削除しますか", message: nil, preferredStyle: .actionSheet)
-            ac.addAction(UIAlertAction(title: "削除", style: .destructive, handler: { _ in
+            let ac = UIAlertController(title: "Delete Picture (Sample)", message: "Do you really want to delete this picture?", preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Delete Now", style: .destructive, handler: { _ in
                 if viewController.navigationController != nil {
                     viewController.navigationController?.popViewController(animated: true)
                 } else {
                     viewController.dismiss(animated: true, completion: nil)
                 }
             }))
-            ac.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             viewController.present(ac, animated: true, completion: nil)
             return false
         default:

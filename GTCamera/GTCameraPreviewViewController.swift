@@ -2,7 +2,7 @@
 //  GTCameraPreviewViewController.swift
 //  GTCamera
 //
-//  Created by 風間剛男 on 2020/04/03.
+//  Created by Sera Naoto on 2020/04/03.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
@@ -29,7 +29,7 @@ public protocol GTCameraPreviewViewControllerDelegate {
     func GTCameraPreviewView(onButton viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> Bool
 }
 
-public class GTCameraPreviewViewController: UIViewController {
+open class GTCameraPreviewViewController: UIViewController {
 
     public enum ButtonPosition:Int {
         case topLeft
@@ -91,7 +91,7 @@ public class GTCameraPreviewViewController: UIViewController {
         self.url = url
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
@@ -235,7 +235,7 @@ public class GTCameraPreviewViewController: UIViewController {
         button.contentMode = .scaleAspectFit
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        button.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         button.tag = position.rawValue * 100 + type.rawValue
         button.addTarget(self, action: #selector(onControlButton(_:)), for: .touchUpInside)
         view.addSubview(button)
@@ -366,11 +366,7 @@ public class GTCameraPreviewViewController: UIViewController {
         guard let type = ButtonType(rawValue: Int(sender.tag % 100)) else { return }
 
         if delegate?.GTCameraPreviewView(onButton: self, position: position, type: type) ?? false {
-            if navigationController != nil {
-                navigationController?.popViewController(animated: true)
-            } else {
-                dismiss(animated: true, completion: nil)
-            }
+            closeViewController()
         }
     }
 }

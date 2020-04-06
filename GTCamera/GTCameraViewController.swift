@@ -16,7 +16,7 @@ public protocol GTCameraDelegate {
     func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?)
 }
 
-public class GTCameraViewController: UIViewController {
+open class GTCameraViewController: UIViewController {
 
     public enum ViewType:Int {
         case Library = 1
@@ -82,7 +82,7 @@ public class GTCameraViewController: UIViewController {
         }
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
@@ -306,15 +306,19 @@ public class GTCameraViewController: UIViewController {
     }
     
     func firstCropImage() {
-        if selectedImage == nil { return }
-        let vc = TOCropViewController(image: selectedImage!)
-        vc.aspectRatioPreset = .preset16x9
-        vc.aspectRatioPickerButtonHidden = true
-        vc.doneButtonTitle = translation.buttonTitleCropDone
-        vc.cancelButtonTitle = translation.buttonTitleCropBack
-        vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        if config.cropEnabled {
+            if selectedImage == nil { return }
+            let vc = TOCropViewController(image: selectedImage!)
+            vc.aspectRatioPreset = config.cropAspectRaitoPreset
+            vc.aspectRatioPickerButtonHidden = config.cropEnableAspectRaitoSelector
+            vc.doneButtonTitle = translation.buttonTitleCropDone
+            vc.cancelButtonTitle = translation.buttonTitleCropBack
+            vc.delegate = self
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        } else {
+            secondPreviewImage()
+        }
     }
     
     func secondPreviewImage(_ animated:Bool = true) {

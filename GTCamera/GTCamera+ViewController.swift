@@ -31,3 +31,13 @@ class GTCamera_ViewController: UIViewController {
     }
 
 }
+
+extension UIViewController {
+    func closeViewController(animated:Bool = true, completion:@escaping(Bool) -> Void = { (_) in }) {
+        if navigationController != nil && navigationController?.presentingViewController == self {
+            navigationController?.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+}
