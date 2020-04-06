@@ -353,9 +353,7 @@ extension GTCameraViewController : UIImagePickerControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false) {
             guard let image = info[.originalImage] as? UIImage else { return }
-            guard let url = info[.imageURL] as? URL else { return }
             self.selectedImage = image
-            self.selectedUrl = url
             self.firstCropImage()
         }
     }
