@@ -12,6 +12,8 @@ import Kingfisher
 public protocol GTCameraPreviewViewControllerDataSource {
     func GTCameraPreviewView(buttonIconFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIImage?
     func GTCameraPreviewView(buttonTitleFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> String?
+    func GTCameraPreviewView(buttonFontFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType, baseFont:UIFont) -> UIFont?
+    func GTCameraPreviewView(buttonTitleColorFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIColor?
     func GTCameraPreviewView(buttonTypeFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition) -> GTCameraPreviewViewController.ButtonType?
     func GTCameraPreviewView(updateButtonFor viewController:GTCameraPreviewViewController, button:inout UIButton, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType)
     func GTCameraPreviewView(buttonContentInsets viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIEdgeInsets?
@@ -20,6 +22,8 @@ public protocol GTCameraPreviewViewControllerDataSource {
 public extension GTCameraPreviewViewControllerDataSource {
     func GTCameraPreviewView(buttonIconFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIImage? { return nil }
     func GTCameraPreviewView(buttonTitleFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> String? { return nil }
+    func GTCameraPreviewView(buttonFontFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType, baseFont:UIFont) -> UIFont? { return nil }
+    func GTCameraPreviewView(buttonTitleColorFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIColor? { return nil }
     func GTCameraPreviewView(buttonTypeFor viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition) -> GTCameraPreviewViewController.ButtonType? { return nil }
     func GTCameraPreviewView(updateButtonFor viewController:GTCameraPreviewViewController, button:inout UIButton, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) {}
     func GTCameraPreviewView(buttonContentInsets viewController:GTCameraPreviewViewController, position:GTCameraPreviewViewController.ButtonPosition, type:GTCameraPreviewViewController.ButtonType) -> UIEdgeInsets? { return nil }
@@ -50,6 +54,7 @@ open class GTCameraPreviewViewController: UIViewController {
         case Select
         case Delete
         case Crop
+        case Custom
     }
     
     public var dataSource:GTCameraPreviewViewControllerDataSource? = nil
@@ -66,6 +71,7 @@ open class GTCameraPreviewViewController: UIViewController {
     fileprivate var beforeNavigationBarHidden:Bool? = nil
     fileprivate var image:UIImage? = nil
     fileprivate var url:URL? = nil
+    fileprivate var animationRect:CGRect? = nil
     
     fileprivate var controlHeaderEnabled:Bool = false
     fileprivate var controlFooterEnabled:Bool = false
@@ -78,6 +84,12 @@ open class GTCameraPreviewViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    public convenience init(_ imageView:UIImageView) {
+        self.init()
+        self.image = imageView.image
+        self.animationRect = imageView.frame
     }
     
     public convenience init(_ image:UIImage, _ url:URL? = nil) {
@@ -110,7 +122,7 @@ open class GTCameraPreviewViewController: UIViewController {
             beforeNavigationBarHidden = navigationController?.isNavigationBarHidden
             navigationController?.setNavigationBarHidden(true, animated: true)
         }
-        print("[ControlEnabled]", controlHeaderEnabled, controlFooterEnabled)
+//        print("[ControlEnabled]", controlHeaderEnabled, controlFooterEnabled)
         showControlView()
     }
     
@@ -145,8 +157,13 @@ open class GTCameraPreviewViewController: UIViewController {
             NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: scrollView, attribute: .centerY, multiplier: 1, constant: 0)
         ])
         
+        print(view.topAnchor.anchorWithOffset(to: view.safeAreaLayoutGuide.topAnchor))
+        
+        let topPadding = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+        let bottomPadding = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+        
         view.addSubview(controlHeaderView)
-        controlHeaderView.addConstraint(NSLayoutConstraint(item: controlHeaderView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50))
+        controlHeaderView.addConstraint(NSLayoutConstraint(item: controlHeaderView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50 + topPadding))
         view.addConstraints([
             NSLayoutConstraint(item: controlHeaderView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: controlHeaderView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
@@ -154,7 +171,7 @@ open class GTCameraPreviewViewController: UIViewController {
         ])
         controlHeaderView.addBlur(style: .dark)
         view.addSubview(controlFooterView)
-        controlFooterView.addConstraint(NSLayoutConstraint(item: controlFooterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50))
+        controlFooterView.addConstraint(NSLayoutConstraint(item: controlFooterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50 + bottomPadding))
         view.addConstraints([
             NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: controlFooterView, attribute: .bottom, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: controlFooterView, attribute: .leading, relatedBy: .equal, toItem: view!, attribute: .leading, multiplier: 1, constant: 0),
@@ -244,34 +261,48 @@ open class GTCameraPreviewViewController: UIViewController {
             button.contentEdgeInsets = insets
         }
         
+        var buttonImage:UIImage? = nil
+        
         switch type {
         case .Apply:
-            button.setImage(UIImage(systemName: "checkmark"), for: .normal)
+//            button.setImage(UIImage(systemName: "checkmark"), for: .normal)
+            buttonImage = UIImage(systemName: "checkmark")
             break
         case .Back:
-            button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+//            button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            buttonImage = UIImage(systemName: "arrow.left")
             break
         case .Close:
-            button.setImage(UIImage(systemName: "xmark"), for: .normal)
+//            button.setImage(UIImage(systemName: "xmark"), for: .normal)
+            buttonImage = UIImage(systemName: "xmark")
             break
         case .Continue:
-            button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+//            button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
+            buttonImage = UIImage(systemName: "arrow.right")
             break
         case .Edit:
-            button.setImage(UIImage(systemName: "wand.and.rays"), for: .normal)
+//            button.setImage(UIImage(systemName: "wand.and.rays"), for: .normal)
+            buttonImage = UIImage(systemName: "wand.and.rays")
             break
         case .Select:
-            button.setImage(UIImage(systemName: "smallcircle.fill.circle"), for: .normal)
+//            button.setImage(UIImage(systemName: "smallcircle.fill.circle"), for: .normal)
+            buttonImage = UIImage(systemName: "smallcircle.fill.circle")
             break
         case .Undo:
-            button.setImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
+//            button.setImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
+            buttonImage = UIImage(systemName: "arrow.utrun.left")
             break
         case .Delete:
-            button.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+//            button.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+            buttonImage = UIImage(systemName: "trash.fill")
             button.tintColor = .gray
             break
         case .Crop:
-            button.setImage(UIImage(systemName: "crop"), for: .normal)
+//            button.setImage(UIImage(systemName: "crop"), for: .normal)
+            buttonImage = UIImage(systemName: "crop")
+            break
+        case .Custom:
+            // Nothing to do here.
             break
         }
         
@@ -287,14 +318,40 @@ open class GTCameraPreviewViewController: UIViewController {
             break
         }
         baseView.addSubview(button)
+
+        let titleColor = dataSource?.GTCameraPreviewView(buttonTitleColorFor: self, position: position, type: type) ?? .lightGray
         
-        button.addConstraints([
-            NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 30),
-            NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)
-        ])
-        baseView?.addConstraints([
-            NSLayoutConstraint(item: button, attribute: .centerY, relatedBy: .equal, toItem: baseView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
+        if let userTitle = dataSource?.GTCameraPreviewView(buttonTitleFor: self, position: position, type: type) {
+            button.setTitle(userTitle, for: .normal)
+            button.titleLabel?.font = dataSource?.GTCameraPreviewView(buttonFontFor: self, position: position, type: type, baseFont: button.titleLabel?.font ?? UIFont.systemFont(ofSize: 18)) ?? UIFont.systemFont(ofSize: 18)
+
+            button.addConstraints([
+                NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)
+            ])
+            button.setTitleColor(titleColor, for: .normal)
+        } else {
+            if let userImage = dataSource?.GTCameraPreviewView(buttonIconFor: self, position: position, type: type) {
+                buttonImage = userImage
+            }
+            button.setImage(buttonImage, for: .normal)
+            button.addConstraints([
+                NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 30),
+                NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)
+            ])
+            button.tintColor = titleColor
+        }
+        
+        var padding:CGFloat!
+        switch position {
+        case .topLeft, .topCenter, .topRight:
+            padding = -1 * (UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0)
+            break
+        case .bottomLeft, .bottomCenter, .bottomRight:
+            padding = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+            break
+        }
+        
+        baseView.addConstraint(NSLayoutConstraint(item: baseView!, attribute: .centerY, relatedBy: .equal, toItem: button, attribute: .centerY, multiplier: 1, constant: padding / 2))
         
         switch position {
         case .topLeft, .bottomLeft:

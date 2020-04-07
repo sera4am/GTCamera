@@ -323,10 +323,14 @@ open class GTCameraViewController: UIViewController {
     
     func secondPreviewImage(_ animated:Bool = true) {
         if selectedImage == nil { return }
-        let vc = GTCamera_ImagePreviewViewController(self, selectedImage!, selectedUrl)
-        vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: animated, completion: nil)
+        
+        if selectedImage != nil {
+            let vc = GTCameraPreviewViewController(selectedImage!, selectedUrl)
+            vc.delegate = self
+            vc.dataSource = self
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
     }
 }
 
@@ -340,8 +344,48 @@ extension GTCameraViewController : TOCropViewControllerDelegate {
 }
 
 extension GTCameraViewController : GTCamera_ImagePreviewViewControllerDelegate {
-    func ImagePreviewView(onSelect viewController: GTCamera_ImagePreviewViewController, image: UIImage?, url: URL?) {
-        delegate?.gtCameraOn(selectLocalImage: self, image: image, url: url)
+}
+
+extension GTCameraViewController : GTCameraPreviewViewControllerDelegate {
+    public func GTCameraPreviewView(onButton viewController: GTCameraPreviewViewController, position: GTCameraPreviewViewController.ButtonPosition, type: GTCameraPreviewViewController.ButtonType) -> Bool {
+        switch type {
+        case .Close:
+            return true
+        case .Apply:
+            viewController.dismiss(animated: false) {
+                self.delegate?.gtCameraOn(selectLocalImage: self, image: self.selectedImage, url: self.selectedUrl)
+            }
+            return false
+        default:
+            break
+        }
+        return true
+    }
+    
+    
+}
+
+extension GTCameraViewController : GTCameraPreviewViewControllerDataSource {
+    public func GTCameraPreviewView(buttonTypeFor viewController: GTCameraPreviewViewController, position: GTCameraPreviewViewController.ButtonPosition) -> GTCameraPreviewViewController.ButtonType? {
+        switch position {
+        case .topLeft:
+            return .Close
+        case .bottomCenter:
+            return .Apply
+        default:
+            break
+        }
+        return nil
+    }
+    
+    public func GTCameraPreviewView(buttonTitleFor viewController: GTCameraPreviewViewController, position: GTCameraPreviewViewController.ButtonPosition, type: GTCameraPreviewViewController.ButtonType) -> String? {
+        switch type {
+        case .Apply:
+            return translation.buttonTitleUseThis
+        default:
+            break
+        }
+        return nil
     }
 }
 
