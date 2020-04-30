@@ -59,7 +59,48 @@ public struct GTCamera_Config {
     public var cropAspectRaitoPreset:TOCropViewControllerAspectRatioPreset = .preset4x3
     public var cropEnableAspectRaitoSelector:Bool = true
     
-    public static var Default:GTCamera_Config = GTCamera_Config()
+    public static var Default:GTCamera_Config = GTCamera_Config(true)
     
-    public init() {}
+    private init(_ config:Bool) {}
+    
+    public init() {
+        tabButtonTintColor = GTCamera_Config.Default.tabButtonTintColor
+        tabButtonTintHighlightColor = GTCamera_Config.Default.tabButtonTintHighlightColor
+        backgroundColor = GTCamera_Config.Default.backgroundColor
+        awsS3Enabled = GTCamera_Config.Default.awsS3Enabled
+        awsS3ConfigKey = GTCamera_Config.Default.awsS3ConfigKey
+        awsS3Bucket = GTCamera_Config.Default.awsS3Bucket
+        awsS3PrefixPath = GTCamera_Config.Default.awsS3PrefixPath
+        awsS3AllowImageExtensions = GTCamera_Config.Default.awsS3AllowImageExtensions
+        libraryEnabled = GTCamera_Config.Default.libraryEnabled
+        tabButtonIconLibrary = GTCamera_Config.Default.tabButtonIconLibrary
+        tabButtonIconCamera = GTCamera_Config.Default.tabButtonIconCamera
+        tabButtonIconAwsS3 = GTCamera_Config.Default.tabButtonIconAwsS3
+        tabButtonIconSize = GTCamera_Config.Default.tabButtonIconSize
+        tabButtonFont = GTCamera_Config.Default.tabButtonFont
+        tabButtonTextColor = GTCamera_Config.Default.tabButtonTextColor
+        tabButtonHighLightTextColor = GTCamera_Config.Default.tabButtonHighLightTextColor
+        tabSpacing = GTCamera_Config.Default.tabSpacing
+        cameraButtonLabelFont = GTCamera_Config.Default.cameraButtonLabelFont
+        cameraFlashButtonAutoIcon = GTCamera_Config.Default.cameraFlashButtonAutoIcon
+        cameraFlashButtonOnIcon = GTCamera_Config.Default.cameraFlashButtonOnIcon
+        cameraFlashButtonOffIcon = GTCamera_Config.Default.cameraFlashButtonOffIcon
+        cameraRotateButtonIconFront = GTCamera_Config.Default.cameraRotateButtonIconFront
+        cameraRotateButtonIconBack = GTCamera_Config.Default.cameraRotateButtonIconBack
+        cameraCameraButtonIcon = GTCamera_Config.Default.cameraCameraButtonIcon
+        previewButtonIconClose = GTCamera_Config.Default.previewButtonIconClose
+        previewButtonIconEdit = GTCamera_Config.Default.previewButtonIconEdit
+        previewButtonIconUndo = GTCamera_Config.Default.previewButtonIconUndo
+        previewButtonIconContinue = GTCamera_Config.Default.previewButtonIconContinue
+        previewButtonTitleClose = GTCamera_Config.Default.previewButtonTitleClose
+        previewButtonTitleEdit = GTCamera_Config.Default.previewButtonTitleEdit
+        previewButtonTitleUndo = GTCamera_Config.Default.previewButtonTitleUndo
+        previewButtonTitleContinue = GTCamera_Config.Default.previewButtonTitleContinue
+        previewButtonTextColor = GTCamera_Config.Default.previewButtonTextColor
+        awsS3LoadErrorIcon = GTCamera_Config.Default.awsS3LoadErrorIcon
+        awsS3LoadLoadingIcon = GTCamera_Config.Default.awsS3LoadLoadingIcon
+        cropEnabled = GTCamera_Config.Default.cropEnabled
+        cropAspectRaitoPreset = GTCamera_Config.Default.cropAspectRaitoPreset
+        cropEnableAspectRaitoSelector = GTCamera_Config.Default.cropEnableAspectRaitoSelector
+    }
 }
