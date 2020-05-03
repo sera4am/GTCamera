@@ -297,12 +297,19 @@ open class GTCameraViewController: UIViewController {
         if error != nil {
             return
         }
-        let vc = TOCropViewController(image: photo!)
-        vc.aspectRatioPreset = .presetSquare
-        vc.aspectRatioLockEnabled = true
-        vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        if config.cropEnabled {
+            let vc = TOCropViewController(image: photo!)
+            vc.aspectRatioPreset = config.cropAspectRaitoPreset
+            vc.aspectRatioPickerButtonHidden = !config.cropEnableAspectRaitoSelector
+            vc.doneButtonTitle = translation.buttonTitleCropDone
+            vc.cancelButtonTitle = translation.buttonTitleCropBack
+            vc.delegate = self
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        } else {
+            selectedImage = photo
+            secondPreviewImage()
+        }
     }
     
     func firstCropImage() {
@@ -310,7 +317,7 @@ open class GTCameraViewController: UIViewController {
             if selectedImage == nil { return }
             let vc = TOCropViewController(image: selectedImage!)
             vc.aspectRatioPreset = config.cropAspectRaitoPreset
-            vc.aspectRatioPickerButtonHidden = config.cropEnableAspectRaitoSelector
+            vc.aspectRatioPickerButtonHidden = !config.cropEnableAspectRaitoSelector
             vc.doneButtonTitle = translation.buttonTitleCropDone
             vc.cancelButtonTitle = translation.buttonTitleCropBack
             vc.delegate = self
