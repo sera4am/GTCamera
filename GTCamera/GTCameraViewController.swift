@@ -93,7 +93,7 @@ open class GTCameraViewController: UIViewController {
     }
     
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        footerView.isHidden = (UIScreen.main.bounds.width > UIScreen.main.bounds.height)
+        footerView.isHidden = size.width > size.height
     }
     
     func initView() {
