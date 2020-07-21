@@ -1,0 +1,30 @@
+PODS:
+  - AWSCore (2.14.2)
+  - AWSS3 (2.14.2):
+    - AWSCore (= 2.14.2)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
+  - TOCropViewController (2.5.4)
+
+DEPENDENCIES:
+  - AWSS3
+  - Kingfisher
+  - TOCropViewController
+
+SPEC REPOS:
+  trunk:
+    - AWSCore
+    - AWSS3
+    - Kingfisher
+    - TOCropViewController
+
+SPEC CHECKSUMS:
+  AWSCore: 80da498ab0979e77dbdc7690a61ceaaccfb0499a
+  AWSS3: 2ea579ed91fb01a187f7d8d827e3936da488531e
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  TOCropViewController: 2a1ae1242600b1f2d996fd91a5268b2309a33b5c
+
+PODFILE CHECKSUM: 064fc27467d3cf11398892aef0901507a42d0710
+
+COCOAPODS: 1.9.3
