@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GTCamera"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "Simple image selection view controller with camera library and aws s3 bucket images for swift ios13"
 
   spec.description  = <<-DESC
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
                    DESC
 
   spec.homepage     = "https://github.com/sera4am/GTCamera"
-  spec.license      = { :type => "MIT", :file => "LISENCE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "sera4am" => "sera@4am.jp" }
   spec.platform     = :ios, "13.0"
 

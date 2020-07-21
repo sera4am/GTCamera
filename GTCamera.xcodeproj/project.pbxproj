@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		235CA9FC604F2073724E9FCD /* Pods_GTCamera_GTCameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */; };
 		75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */; };
+		880A30CF93515B3396A1DD5B /* Pods_GTCameraExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */; };
 		D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888B3662434445B00E5B161 /* GTCameraViewController.swift */; };
 		D8AD32AA242DCC6300771E81 /* GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; };
 		D8AD32AF242DCC6300771E81 /* GTCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32AE242DCC6300771E81 /* GTCameraTests.swift */; };
@@ -33,7 +34,6 @@
 		D8BF1FB724372DBD00D4B9C6 /* GTCameraPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF1FB624372DBD00D4B9C6 /* GTCameraPreviewViewController.swift */; };
 		D8C1A768245A748D00FDE159 /* GTCamera+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1A767245A748D00FDE159 /* GTCamera+Config.swift */; };
 		D8C1A76A245A74A700FDE159 /* GTCamera+Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C1A769245A74A700FDE159 /* GTCamera+Translation.swift */; };
-		DAD0AA4D56F28AE1188DFE83 /* Pods_GTCameraExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BF1FAB2437211400D4B9C6 /* GTCamera.framework in Frameworks */,
-				DAD0AA4D56F28AE1188DFE83 /* Pods_GTCameraExample.framework in Frameworks */,
+				880A30CF93515B3396A1DD5B /* Pods_GTCameraExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
