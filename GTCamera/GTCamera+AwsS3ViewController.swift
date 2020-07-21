@@ -33,95 +33,88 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        errorView.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorIcon.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(errorView)
-        errorView.addSubview(errorLabel)
-        errorView.addSubview(errorIcon)
-        
-        view.addConstraints([
-            NSLayoutConstraint(item: errorView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: errorView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: errorView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: errorView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        errorIcon.addConstraints([
-            NSLayoutConstraint(item: errorIcon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 64),
-            NSLayoutConstraint(item: errorIcon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 64)
-        ])
-        errorView.addConstraints([
-            NSLayoutConstraint(item: errorIcon, attribute: .centerX, relatedBy: .equal, toItem: errorView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: errorIcon, attribute: .centerY, relatedBy: .equal, toItem: errorView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-        errorView.addConstraints([
-            NSLayoutConstraint(item: errorLabel, attribute: .centerX, relatedBy: .equal, toItem: errorView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: errorLabel, attribute: .top, relatedBy: .equal, toItem: errorIcon, attribute: .bottom, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: errorLabel, attribute: .leading, relatedBy: .equal, toItem: errorView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: errorView, attribute: .trailing, relatedBy: .equal, toItem: errorLabel, attribute: .trailing, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: errorView, attribute: .bottom, relatedBy: .greaterThanOrEqual, toItem: errorLabel, attribute: .bottom, multiplier: 1, constant: 0)
-        ])
-        errorLabel.numberOfLines = 0
-        errorView.backgroundColor = .darkGray
-        errorLabel.textColor = .gray
-        errorIcon.tintColor = .gray
-        errorIcon.image = gtCamera.config.awsS3LoadErrorIcon
-        errorLabel.text = gtCamera.translation.messageAWSS3NoImages
-        errorLabel.textAlignment = .center
-        
-        loadingView.translatesAutoresizingMaskIntoConstraints = false
-        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
-        loadingIcon.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(loadingView)
-        loadingView.addSubview(loadingLabel)
-        loadingView.addSubview(loadingIcon)
-        view.addConstraints([
-            NSLayoutConstraint(item: loadingView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: loadingView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: loadingView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: loadingView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        loadingIcon.addConstraints([
-            NSLayoutConstraint(item: loadingIcon, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 64),
-            NSLayoutConstraint(item: loadingIcon, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 64)
-        ])
-        loadingView.addConstraints([
-            NSLayoutConstraint(item: loadingIcon, attribute: .centerX, relatedBy: .equal, toItem: loadingView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: loadingIcon, attribute: .centerY, relatedBy: .equal, toItem: loadingView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-        loadingView.addConstraints([
-            NSLayoutConstraint(item: loadingLabel, attribute: .centerX, relatedBy: .equal, toItem: loadingView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: loadingLabel, attribute: .top, relatedBy: .equal, toItem: loadingIcon, attribute: .bottom, multiplier: 1, constant: 8)
-        ])
-        loadingView.backgroundColor = .darkGray
-        loadingLabel.textColor = .gray
-        loadingIcon.tintColor = .gray
-        loadingIcon.image = gtCamera.config.awsS3LoadLoadingIcon
-        loadingLabel.text = gtCamera.translation.messageAWSS3Loading
-        loadingLabel.textAlignment = .center
-        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: view.frame.width / 4, height: view.frame.height / 6)
         layout.scrollDirection = .vertical
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.setCollectionViewLayout(layout, animated: true)
-        view.addSubview(collectionView)
-        view.addConstraints([
-            NSLayoutConstraint(item: collectionView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: collectionView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: collectionView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: collectionView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         
+        view.addSubview(errorView)
+        errorView.addSubview(errorLabel)
+        errorView.addSubview(errorIcon)
+        view.addSubview(loadingView)
+        loadingView.addSubview(loadingLabel)
+        loadingView.addSubview(loadingIcon)
+        view.addSubview(collectionView)
+        
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorIcon.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
+        loadingIcon.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        errorLabel.numberOfLines = 0
+        errorView.backgroundColor = .darkGray
+        errorLabel.textColor = .gray
+        errorIcon.tintColor = .gray
+        errorIcon.contentMode = .scaleAspectFill
+        errorIcon.image = gtCamera.config.awsS3LoadErrorIcon
+        errorLabel.text = gtCamera.translation.messageAWSS3NoImages
+        errorLabel.textAlignment = .center
+        loadingView.backgroundColor = .darkGray
+        loadingLabel.textColor = .gray
+        loadingIcon.tintColor = .gray
+        loadingIcon.contentMode = .scaleAspectFill
+        loadingIcon.image = gtCamera.config.awsS3LoadLoadingIcon
+        loadingLabel.text = gtCamera.translation.messageAWSS3Loading
+        loadingLabel.textAlignment = .center
         collectionView.register(GTCamera_AWSS3CollectionCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.contentSize = CGSize(width: view.frame.width / 4, height: view.frame.height / 6)
         collectionView.delegate = self
         collectionView.dataSource = self
+
+        
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: errorView.bottomAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
+            
+            errorIcon.widthAnchor.constraint(equalToConstant: 64),
+            errorIcon.heightAnchor.constraint(equalToConstant: 64),
+            errorIcon.centerXAnchor.constraint(equalTo: errorView.centerXAnchor),
+            errorIcon.centerYAnchor.constraint(equalTo: errorView.centerYAnchor),
+            
+            errorLabel.centerXAnchor.constraint(equalTo: errorView.centerXAnchor),
+            errorLabel.topAnchor.constraint(equalTo: errorIcon.bottomAnchor, constant: 8),
+            errorLabel.leadingAnchor.constraint(equalTo: errorView.leadingAnchor, constant: 8),
+            errorView.trailingAnchor.constraint(equalTo: errorLabel.trailingAnchor, constant: 8),
+            errorView.bottomAnchor.constraint(greaterThanOrEqualTo: errorView.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: loadingView.bottomAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: loadingView.trailingAnchor),
+            
+            loadingIcon.widthAnchor.constraint(equalToConstant: 64),
+            loadingIcon.heightAnchor.constraint(equalToConstant: 64),
+            loadingIcon.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+            loadingIcon.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            
+            loadingLabel.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+            loadingLabel.topAnchor.constraint(equalTo: loadingIcon.bottomAnchor, constant: 8),
+            
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            
+        ])
+
         
         view.bringSubviewToFront(errorView)
         view.bringSubviewToFront(loadingView)

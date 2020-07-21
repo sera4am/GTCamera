@@ -21,8 +21,8 @@ target 'GTCameraExample' do
   use_frameworks!
 
   # Pods for GTCameraExample
-  pod 'AWSS3'
-  pod 'TOCropViewController'
-  pod 'Kingfisher'
+#  pod 'AWSS3'
+#  pod 'TOCropViewController'
+#  pod 'Kingfisher'
 
 end

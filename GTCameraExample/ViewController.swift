@@ -115,9 +115,22 @@ extension ViewController : GTCameraPreviewViewControllerDataSource {
 
 
 extension ViewController : GTCameraDelegate {
-    func gtCameraOn(selectLocalImage gtCamera: GTCameraViewController, image: UIImage?, url: URL?) {
+    
+    func gtCameraOn(selectLocalImage gtCamera: GTCameraViewController, image: UIImage?, url: URL?, mode: GTCameraViewController.ViewType) {
         gtCamera.dismiss(animated: true) {
-            let ac = UIAlertController(title: "Select Image", message: nil, preferredStyle: .alert)
+            var message:String = ""
+            switch mode {
+            case .Library:
+                message = "Get from library"
+                break
+            case .Camera:
+                message = "Get from take photo"
+                break
+            case .AwsS3:
+                message = "Get from aws s3"
+                break
+            }
+            let ac = UIAlertController(title: "Image selected", message: message, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(ac, animated: true, completion: nil)
         }

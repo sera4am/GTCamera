@@ -133,52 +133,18 @@ open class GTCameraPreviewViewController: UIViewController {
     }
     
     private func initView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(imageView)
+        view.addSubview(controlHeaderView)
+        view.addSubview(controlFooterView)
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         controlHeaderView.translatesAutoresizingMaskIntoConstraints = false
         controlFooterView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(scrollView)
-        view.addConstraints([
-            NSLayoutConstraint(item: scrollView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: scrollView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: scrollView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: scrollView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        scrollView.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: imageView.trailingAnchor)
-        ])
-        scrollView.addConstraints([
-            NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: scrollView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-        
-        print(view.topAnchor.anchorWithOffset(to: view.safeAreaLayoutGuide.topAnchor))
-        
-        let topPadding = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
-        let bottomPadding = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
-        
-        view.addSubview(controlHeaderView)
-        controlHeaderView.addConstraint(NSLayoutConstraint(item: controlHeaderView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50 + topPadding))
-        view.addConstraints([
-            NSLayoutConstraint(item: controlHeaderView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: controlHeaderView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: controlHeaderView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         controlHeaderView.addBlur(style: .dark)
-        view.addSubview(controlFooterView)
-        controlFooterView.addConstraint(NSLayoutConstraint(item: controlFooterView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 50 + bottomPadding))
-        view.addConstraints([
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: controlFooterView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: controlFooterView, attribute: .leading, relatedBy: .equal, toItem: view!, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: controlFooterView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         controlFooterView.addBlur(style: .dark)
-        
         view.backgroundColor = .black
         imageView.contentMode = .scaleAspectFit
         if image != nil {
@@ -195,6 +161,7 @@ open class GTCameraPreviewViewController: UIViewController {
                 }
             }
         }
+        
         scrollView.contentMode = .center
         scrollView.isMultipleTouchEnabled = true
         scrollView.isScrollEnabled = true
@@ -209,6 +176,34 @@ open class GTCameraPreviewViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTapScreen(_:)))
         scrollView.addGestureRecognizer(gesture)
         
+        let topPadding = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+        let bottomPadding = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            
+            imageView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            
+            imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            
+            controlHeaderView.heightAnchor.constraint(equalToConstant: 50 + topPadding),
+            controlHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
+            controlHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: controlHeaderView.trailingAnchor),
+            
+            controlFooterView.heightAnchor.constraint(equalToConstant: 50 + bottomPadding),
+            view.bottomAnchor.constraint(equalTo: controlFooterView.bottomAnchor),
+            controlFooterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: controlFooterView.trailingAnchor),
+        ])
+        
         view.bringSubviewToFront(controlHeaderView)
         view.bringSubviewToFront(controlFooterView)
         
@@ -221,7 +216,7 @@ open class GTCameraPreviewViewController: UIViewController {
         controlFooterEnabled = false
         if closeButtonEnabled {
             if navigationController != nil {
-                setControlButton(.topLeft, .Back)
+                setControlButton(.topRight, .Back)
             } else {
                 setControlButton(.topLeft, .Close)
             }
@@ -265,40 +260,31 @@ open class GTCameraPreviewViewController: UIViewController {
         
         switch type {
         case .Apply:
-//            button.setImage(UIImage(systemName: "checkmark"), for: .normal)
             buttonImage = UIImage(systemName: "checkmark")
             break
         case .Back:
-//            button.setImage(UIImage(systemName: "arrow.left"), for: .normal)
             buttonImage = UIImage(systemName: "arrow.left")
             break
         case .Close:
-//            button.setImage(UIImage(systemName: "xmark"), for: .normal)
             buttonImage = UIImage(systemName: "xmark")
             break
         case .Continue:
-//            button.setImage(UIImage(systemName: "arrow.right"), for: .normal)
             buttonImage = UIImage(systemName: "arrow.right")
             break
         case .Edit:
-//            button.setImage(UIImage(systemName: "wand.and.rays"), for: .normal)
             buttonImage = UIImage(systemName: "wand.and.rays")
             break
         case .Select:
-//            button.setImage(UIImage(systemName: "smallcircle.fill.circle"), for: .normal)
             buttonImage = UIImage(systemName: "smallcircle.fill.circle")
             break
         case .Undo:
-//            button.setImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
             buttonImage = UIImage(systemName: "arrow.utrun.left")
             break
         case .Delete:
-//            button.setImage(UIImage(systemName: "trash.fill"), for: .normal)
             buttonImage = UIImage(systemName: "trash.fill")
             button.tintColor = .gray
             break
         case .Crop:
-//            button.setImage(UIImage(systemName: "crop"), for: .normal)
             buttonImage = UIImage(systemName: "crop")
             break
         case .Custom:
@@ -321,23 +307,24 @@ open class GTCameraPreviewViewController: UIViewController {
 
         let titleColor = dataSource?.GTCameraPreviewView(buttonTitleColorFor: self, position: position, type: type) ?? .lightGray
         
+        var constraints:[NSLayoutConstraint] = []
+        
         if let userTitle = dataSource?.GTCameraPreviewView(buttonTitleFor: self, position: position, type: type) {
             button.setTitle(userTitle, for: .normal)
             button.titleLabel?.font = dataSource?.GTCameraPreviewView(buttonFontFor: self, position: position, type: type, baseFont: button.titleLabel?.font ?? UIFont.systemFont(ofSize: 18)) ?? UIFont.systemFont(ofSize: 18)
-
-            button.addConstraints([
-                NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)
-            ])
+            constraints += [
+                button.heightAnchor.constraint(equalToConstant: 30),
+            ]
             button.setTitleColor(titleColor, for: .normal)
         } else {
             if let userImage = dataSource?.GTCameraPreviewView(buttonIconFor: self, position: position, type: type) {
                 buttonImage = userImage
             }
             button.setImage(buttonImage, for: .normal)
-            button.addConstraints([
-                NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 30),
-                NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 30)
-            ])
+            constraints += [
+                button.widthAnchor.constraint(equalToConstant: 30),
+                button.heightAnchor.constraint(equalToConstant: 30),
+            ]
             button.tintColor = titleColor
         }
         
@@ -355,16 +342,22 @@ open class GTCameraPreviewViewController: UIViewController {
         
         switch position {
         case .topLeft, .bottomLeft:
-            baseView.addConstraint(NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: baseView, attribute: .leading, multiplier: 1, constant: 8))
+            constraints += [
+                button.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 8)
+            ]
             break
         case .topCenter, .bottomCenter:
-            baseView.addConstraint(NSLayoutConstraint(item: button, attribute: .centerX, relatedBy: .equal, toItem: baseView, attribute: .centerX, multiplier: 1, constant: 0))
+            constraints += [
+                button.centerXAnchor.constraint(equalTo: baseView.centerXAnchor),
+            ]
             break
         case .topRight, .bottomRight:
-            baseView.addConstraint(NSLayoutConstraint(item: baseView!, attribute: .trailing, relatedBy: .equal, toItem: button, attribute: .trailing, multiplier: 1, constant: 8))
+            constraints += [
+                baseView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 8)
+            ]
             break
         }
-        
+        NSLayoutConstraint.activate(constraints)
         controlButtons[type] = button
     }
     

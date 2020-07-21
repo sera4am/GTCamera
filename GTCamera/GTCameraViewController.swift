@@ -13,7 +13,7 @@ import AVFoundation
 import TOCropViewController
 
 public protocol GTCameraDelegate {
-    func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?)
+    func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?, mode:GTCameraViewController.ViewType)
 }
 
 open class GTCameraViewController: UIViewController {
@@ -41,6 +41,7 @@ open class GTCameraViewController: UIViewController {
             }
         }
     }
+    open var mode:ViewType = .Camera
     
     var selectedImage:UIImage? = nil
     var selectedUrl:URL? = nil
@@ -99,31 +100,28 @@ open class GTCameraViewController: UIViewController {
     func initView() {
         view.backgroundColor = .white
         addChild(pageViewControler)
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        footerView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(mainStackView)
-        NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor)
-        ])
-        self.view.addConstraints([
-            NSLayoutConstraint(item: mainStackView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self.view!, attribute: .trailing, relatedBy: .equal, toItem: mainStackView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        mainStackView.axis = .vertical
-
         mainStackView.addArrangedSubview(pageViewControler.view)
         mainStackView.addArrangedSubview(footerView)
-        footerHeight = NSLayoutConstraint(item: footerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 60)
-        footerView.addConstraint(footerHeight)
+        view.addSubview(viewTypeSelectorBar)
+
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+
+        mainStackView.axis = .vertical
         footerView.axis = .horizontal
         footerView.distribution = .fillEqually
-        
-        self.view.addSubview(viewTypeSelectorBar)
-        
         viewPages[.Camera] = GTCamera_CameraViewController(self)
-        
+
+        footerHeight = footerView.heightAnchor.constraint(equalToConstant: 60)
+        NSLayoutConstraint.activate([
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
+            footerHeight,
+        ])
+
         for (_, vc) in viewPages {
             addChild(vc)
         }
@@ -225,52 +223,60 @@ open class GTCameraViewController: UIViewController {
         view.backgroundColor = config.backgroundColor
         
         footerView.addArrangedSubview(view)
+        view.addSubview(button)
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        
-        view.addConstraints([
-            NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: button, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: button, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
+
         button.addTarget(self, action: #selector(onFooterButton(_:)), for: .touchUpInside)
         button.tag = type.rawValue
-        footerButtons[type] = button
-        var height:CGFloat = config.tabSpacing * 2
+
+        var constraints:[NSLayoutConstraint] = []
         
+        constraints = [
+            button.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: button.bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: button.trailingAnchor),
+        ]
+        
+        footerButtons[type] = button
+
+        var height:CGFloat = config.tabSpacing * 2
         if name != nil {
             view.addSubview(label)
             label.text = name
             label.font = config.tabButtonFont
             label.textColor = config.tabButtonTextColor
-            view.addConstraints([
-                NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: label, attribute: .bottom, multiplier: 1, constant: config.tabSpacing)
-            ])
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            constraints += [
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                view.bottomAnchor.constraint(equalTo: label.bottomAnchor, constant: config.tabSpacing),
+            ]
             height += label.font.pointSize + 8
             footerLabels[type] = label
         }
         if icon != nil {
             view.addSubview(iconImageView)
             iconImageView.image = icon!
-            iconImageView.addConstraints([
-                NSLayoutConstraint(item: iconImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: config.tabButtonIconSize),
-                NSLayoutConstraint(item: iconImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: config.tabButtonIconSize)
-            ])
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
             iconImageView.tintColor = config.tabButtonTextColor
-            view.addConstraints([
-                NSLayoutConstraint(item: iconImageView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: iconImageView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-            ])
+            constraints += [
+                iconImageView.widthAnchor.constraint(equalToConstant: config.tabButtonIconSize),
+                iconImageView.heightAnchor.constraint(equalToConstant: config.tabButtonIconSize),
+                iconImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                iconImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ]
             if name != nil {
                 height += config.tabSpacing
             }
             height += config.tabButtonIconSize + 8
             footerIcons[type] = iconImageView
         }
+        
+        NSLayoutConstraint.activate(constraints)
         
         view.bringSubviewToFront(button)
         
@@ -282,14 +288,14 @@ open class GTCameraViewController: UIViewController {
     @objc func onFooterButton(_ sender:Any?) {
         guard let typeVal = (sender as? UIButton)?.tag else { return }
         guard let type = ViewType(rawValue: typeVal) else { return }
-        
+        mode = type
+
         if type == .Library {
             let vc = UIImagePickerController()
             vc.delegate = self
             present(vc, animated: true, completion: nil)
             return
         }
-        
         updateViewType(type, true)
     }
     
@@ -303,6 +309,10 @@ open class GTCameraViewController: UIViewController {
             vc.aspectRatioPickerButtonHidden = !config.cropEnableAspectRaitoSelector
             vc.doneButtonTitle = translation.buttonTitleCropDone
             vc.cancelButtonTitle = translation.buttonTitleCropBack
+            vc.resetAspectRatioEnabled = config.cropResetAspectRaitoEnabled
+            vc.aspectRatioPickerButtonHidden = config.cropAspectRaitoPickerButtonHidden
+            vc.resetButtonHidden = config.cropResetButtonHidden
+            vc.rotateButtonsHidden = config.cropRotateButtonsHidden
             vc.delegate = self
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
@@ -320,6 +330,10 @@ open class GTCameraViewController: UIViewController {
             vc.aspectRatioPickerButtonHidden = !config.cropEnableAspectRaitoSelector
             vc.doneButtonTitle = translation.buttonTitleCropDone
             vc.cancelButtonTitle = translation.buttonTitleCropBack
+            vc.resetAspectRatioEnabled = config.cropResetAspectRaitoEnabled
+            vc.aspectRatioPickerButtonHidden = config.cropAspectRaitoPickerButtonHidden
+            vc.resetButtonHidden = config.cropResetButtonHidden
+            vc.rotateButtonsHidden = config.cropRotateButtonsHidden
             vc.delegate = self
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
@@ -330,6 +344,11 @@ open class GTCameraViewController: UIViewController {
     
     func secondPreviewImage(_ animated:Bool = true) {
         if selectedImage == nil { return }
+        
+        if !config.useThisPreviewEnabled {
+            delegate?.gtCameraOn(selectLocalImage: self, image: selectedImage, url: selectedUrl, mode: mode)
+            return
+        }
         
         if selectedImage != nil {
             let vc = GTCameraPreviewViewController(selectedImage!, selectedUrl)
@@ -360,7 +379,7 @@ extension GTCameraViewController : GTCameraPreviewViewControllerDelegate {
             return true
         case .Apply:
             viewController.dismiss(animated: false) {
-                self.delegate?.gtCameraOn(selectLocalImage: self, image: self.selectedImage, url: self.selectedUrl)
+                self.delegate?.gtCameraOn(selectLocalImage: self, image: self.selectedImage, url: self.selectedUrl, mode: self.mode)
             }
             return false
         default:
@@ -375,7 +394,7 @@ extension GTCameraViewController : GTCameraPreviewViewControllerDelegate {
 extension GTCameraViewController : GTCameraPreviewViewControllerDataSource {
     public func GTCameraPreviewView(buttonTypeFor viewController: GTCameraPreviewViewController, position: GTCameraPreviewViewController.ButtonPosition) -> GTCameraPreviewViewController.ButtonType? {
         switch position {
-        case .topLeft:
+        case .topRight:
             return .Close
         case .bottomCenter:
             return .Apply

@@ -11,6 +11,8 @@ import TOCropViewController
 
 public struct GTCamera_Config {
     
+    public var useThisPreviewEnabled:Bool = true
+    
     public var tabButtonTintColor:UIColor = .darkGray
     public var tabButtonTintHighlightColor:UIColor = .lightGray
     public var backgroundColor:UIColor = .black
@@ -58,6 +60,10 @@ public struct GTCamera_Config {
     public var cropEnabled:Bool = true
     public var cropAspectRaitoPreset:TOCropViewControllerAspectRatioPreset = .preset4x3
     public var cropEnableAspectRaitoSelector:Bool = true
+    public var cropResetAspectRaitoEnabled:Bool = true
+    public var cropAspectRaitoPickerButtonHidden:Bool = false
+    public var cropResetButtonHidden:Bool = false
+    public var cropRotateButtonsHidden:Bool = false
     
     public static var Default:GTCamera_Config = GTCamera_Config(true)
     
