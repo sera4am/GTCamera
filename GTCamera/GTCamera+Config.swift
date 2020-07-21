@@ -70,6 +70,7 @@ public struct GTCamera_Config {
     private init(_ config:Bool) {}
     
     public init() {
+        useThisPreviewEnabled = GTCamera_Config.Default.useThisPreviewEnabled
         tabButtonTintColor = GTCamera_Config.Default.tabButtonTintColor
         tabButtonTintHighlightColor = GTCamera_Config.Default.tabButtonTintHighlightColor
         backgroundColor = GTCamera_Config.Default.backgroundColor
@@ -108,5 +109,9 @@ public struct GTCamera_Config {
         cropEnabled = GTCamera_Config.Default.cropEnabled
         cropAspectRaitoPreset = GTCamera_Config.Default.cropAspectRaitoPreset
         cropEnableAspectRaitoSelector = GTCamera_Config.Default.cropEnableAspectRaitoSelector
+        cropResetAspectRaitoEnabled = GTCamera_Config.Default.cropResetAspectRaitoEnabled
+        cropAspectRaitoPickerButtonHidden = GTCamera_Config.Default.cropAspectRaitoPickerButtonHidden
+        cropResetButtonHidden = GTCamera_Config.Default.cropResetButtonHidden
+        cropRotateButtonsHidden = GTCamera_Config.Default.cropRotateButtonsHidden
     }
 }
