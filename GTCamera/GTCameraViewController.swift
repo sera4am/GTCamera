@@ -327,7 +327,6 @@ open class GTCameraViewController: UIViewController {
             vc.resetButtonHidden = config.cropResetButtonHidden
             vc.rotateButtonsHidden = config.cropRotateButtonsHidden
             vc.aspectRatioLockEnabled = config.cropAspectRatioLockEnabled
-            vc.aspectRatioLockDimensionSwapEnabled = false
             vc.delegate = self
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
