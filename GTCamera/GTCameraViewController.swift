@@ -378,11 +378,10 @@ open class GTCameraViewController: UIViewController {
 
 extension GTCameraViewController : TOCropViewControllerDelegate {
     public func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
-        cropViewController.dismiss(animated: false) {
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
-            self.selectedImage = image
-            self.secondPreviewImage(false)
-        }
+        cropViewController.dismiss(animated: false, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.selectedImage = image
+        self.secondPreviewImage(false)
     }
 }
 
