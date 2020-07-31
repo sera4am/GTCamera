@@ -10,11 +10,8 @@
 		235CA9FC604F2073724E9FCD /* Pods_GTCamera_GTCameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41070A6682372B539BBFEE04 /* Pods_GTCamera_GTCameraTests.framework */; };
 		75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2471AC68F924DD780B9E10C6 /* Pods_GTCamera.framework */; };
 		880A30CF93515B3396A1DD5B /* Pods_GTCameraExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6D0F68E9333B11E4D9EC13 /* Pods_GTCameraExample.framework */; };
+		D80CDFBE24C7F36D00383145 /* GTCamera+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80CDFBD24C7F36D00383145 /* GTCamera+Device.swift */; };
 		D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888B3662434445B00E5B161 /* GTCameraViewController.swift */; };
-		D891068924C729EA00EC4254 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D891068524C729EA00EC4254 /* AWSCore.framework */; };
-		D891068B24C729EA00EC4254 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D891068624C729EA00EC4254 /* AWSS3.framework */; };
-		D891068D24C729EA00EC4254 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D891068724C729EA00EC4254 /* Kingfisher.framework */; };
-		D891068F24C729EA00EC4254 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D891068824C729EA00EC4254 /* TOCropViewController.framework */; };
 		D8AD32AA242DCC6300771E81 /* GTCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AD32A0242DCC6300771E81 /* GTCamera.framework */; };
 		D8AD32AF242DCC6300771E81 /* GTCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32AE242DCC6300771E81 /* GTCameraTests.swift */; };
 		D8AD32BC242DCD2700771E81 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AD32BB242DCD2700771E81 /* SampleViewController.swift */; };
@@ -81,6 +78,7 @@
 		8300B5A3FA511BEE4F4F40D6 /* Pods-GTCameraExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCameraExample.debug.xcconfig"; path = "Target Support Files/Pods-GTCameraExample/Pods-GTCameraExample.debug.xcconfig"; sourceTree = "<group>"; };
 		A9E1174FA0A1FBFA37E77A4E /* Pods-GTCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera.release.xcconfig"; path = "Target Support Files/Pods-GTCamera/Pods-GTCamera.release.xcconfig"; sourceTree = "<group>"; };
 		CD06549F150238CE9ECBEC27 /* Pods-GTCamera-GTCameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GTCamera-GTCameraTests.debug.xcconfig"; path = "Target Support Files/Pods-GTCamera-GTCameraTests/Pods-GTCamera-GTCameraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D80CDFBD24C7F36D00383145 /* GTCamera+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GTCamera+Device.swift"; sourceTree = "<group>"; };
 		D888B3662434445B00E5B161 /* GTCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTCameraViewController.swift; sourceTree = "<group>"; };
 		D891067924C729D100EC4254 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D891067A24C729D100EC4254 /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,11 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D891068F24C729EA00EC4254 /* TOCropViewController.framework in Frameworks */,
 				75BC61C1371C1ABF813AB537 /* Pods_GTCamera.framework in Frameworks */,
-				D891068924C729EA00EC4254 /* AWSCore.framework in Frameworks */,
-				D891068D24C729EA00EC4254 /* Kingfisher.framework in Frameworks */,
-				D891068B24C729EA00EC4254 /* AWSS3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +221,7 @@
 				D8ADD6362433370A00F9D50B /* GTCamera+UIView.swift */,
 				D8ADD6312433370A00F9D50B /* GTCamera+ViewController.swift */,
 				D8AD32A4242DCC6300771E81 /* Info.plist */,
+				D80CDFBD24C7F36D00383145 /* GTCamera+Device.swift */,
 			);
 			path = GTCamera;
 			sourceTree = "<group>";
@@ -519,6 +514,7 @@
 				D8ADD63C2433370A00F9D50B /* GTCamera+UIImage.swift in Sources */,
 				D8C1A768245A748D00FDE159 /* GTCamera+Config.swift in Sources */,
 				D8BF1FB724372DBD00D4B9C6 /* GTCameraPreviewViewController.swift in Sources */,
+				D80CDFBE24C7F36D00383145 /* GTCamera+Device.swift in Sources */,
 				D888B3672434445B00E5B161 /* GTCameraViewController.swift in Sources */,
 				D8ADD6432433370A00F9D50B /* GTCamera+String.swift in Sources */,
 				D8C1A76A245A74A700FDE159 /* GTCamera+Translation.swift in Sources */,

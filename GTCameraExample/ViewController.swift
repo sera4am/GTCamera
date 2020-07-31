@@ -18,17 +18,23 @@ class ViewController: UIViewController {
 
     @IBAction func onSimple(_ sender: Any) {
         let vc = GTCameraViewController()
+        GTCamera_Config.Default.cropAspectRatioLockEnabled = true
+        GTCamera_Config.Default.cropAspectRaitoPreset = .preset4x3
+        GTCamera_Config.Default.cropEnableAspectRaitoSelector = false
         vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
     
     
     @IBAction func onCustomize(_ sender: Any) {
-        GTCamera_Config.Default.libraryEnabled = false
+        GTCamera_Config.Default.libraryEnabled = true
         GTCamera_Translation.Default.tabTitleCamera = "Photo"
         GTCamera_Config.Default.cameraFlashButtonAutoIcon = UIImage(systemName: "person.fill")!
         GTCamera_Config.Default.cameraFlashButtonOnIcon = UIImage(systemName: "person.2.fill")!
         GTCamera_Config.Default.cameraFlashButtonOffIcon = UIImage(systemName: "person.3.fill")!
+        GTCamera_Config.Default.cropAspectRatioLockEnabled = true
+        GTCamera_Config.Default.cropAspectRaitoPreset = .preset4x3
+        GTCamera_Config.Default.cropEnableAspectRaitoSelector = false
         let vc = GTCameraViewController()
         vc.delegate = self
         present(vc, animated: true, completion: nil)

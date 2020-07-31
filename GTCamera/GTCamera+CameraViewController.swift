@@ -47,11 +47,9 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("[Transision]", size, view.frame.size)
     }
     
     override func viewDidLayoutSubviews() {
-        print("[SubViews]", "DidLayut")
         manager.previewLayer?.frame = previewView.frame
 
         switch UIDevice.current.orientation {

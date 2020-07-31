@@ -64,6 +64,7 @@ public struct GTCamera_Config {
     public var cropAspectRaitoPickerButtonHidden:Bool = false
     public var cropResetButtonHidden:Bool = false
     public var cropRotateButtonsHidden:Bool = false
+    public var cropAspectRatioLockEnabled:Bool = false
     
     public static var Default:GTCamera_Config = GTCamera_Config(true)
     
@@ -113,5 +114,6 @@ public struct GTCamera_Config {
         cropAspectRaitoPickerButtonHidden = GTCamera_Config.Default.cropAspectRaitoPickerButtonHidden
         cropResetButtonHidden = GTCamera_Config.Default.cropResetButtonHidden
         cropRotateButtonsHidden = GTCamera_Config.Default.cropRotateButtonsHidden
+        cropAspectRatioLockEnabled = GTCamera_Config.Default.cropAspectRatioLockEnabled
     }
 }

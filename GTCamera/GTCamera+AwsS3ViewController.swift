@@ -145,7 +145,6 @@ class GTCamera_AwsS3ViewController: GTCamera_ViewController {
         listRequest.encodingType = .URL
         listRequest.bucket = gtCamera.config.awsS3Bucket!
         s3.listObjects(listRequest) { (output, error) in
-            print("call returned")
             if error != nil {
                 DispatchQueue.main.async {
                     self.loadingView.isHidden = true
@@ -219,7 +218,6 @@ extension GTCamera_AwsS3ViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize(width: view.frame.width / 4, height: view.frame.height / 6)
-        print(size)
         return size
     }
     

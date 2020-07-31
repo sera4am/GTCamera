@@ -96,7 +96,6 @@ class GTCamera_CameraManager: NSObject {
     @objc func onPreviewTapped(_ sender:Any?) {
         guard let gesture = sender as? UIGestureRecognizer else { return }
         let point = gesture.location(in: preview)
-        print(point)
         focusPoint = point
     }
     

@@ -89,7 +89,6 @@ open class GTCameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        print(Locale.current)
         initView()
     }
     
@@ -112,7 +111,7 @@ open class GTCameraViewController: UIViewController {
         footerView.axis = .horizontal
         footerView.distribution = .fillEqually
         viewPages[.Camera] = GTCamera_CameraViewController(self)
-
+        
         footerHeight = footerView.heightAnchor.constraint(equalToConstant: 60)
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -289,10 +288,24 @@ open class GTCameraViewController: UIViewController {
         guard let typeVal = (sender as? UIButton)?.tag else { return }
         guard let type = ViewType(rawValue: typeVal) else { return }
         mode = type
-
         if type == .Library {
             let vc = UIImagePickerController()
             vc.delegate = self
+            
+            if is_iPad() {
+                vc.modalPresentationStyle = .popover
+                if let popver = vc.popoverPresentationController {
+                    popver.sourceView = view
+                    popver.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+                    popver.sourceRect = view.frame
+                    vc.preferredContentSize = CGSize(width: view.frame.width - 80, height: view.frame.height - 80)
+                } else {
+                    vc.modalPresentationStyle = .fullScreen
+                }
+            } else {
+                vc.modalPresentationStyle = .fullScreen
+            }
+            
             present(vc, animated: true, completion: nil)
             return
         }
@@ -313,6 +326,8 @@ open class GTCameraViewController: UIViewController {
             vc.aspectRatioPickerButtonHidden = config.cropAspectRaitoPickerButtonHidden
             vc.resetButtonHidden = config.cropResetButtonHidden
             vc.rotateButtonsHidden = config.cropRotateButtonsHidden
+            vc.aspectRatioLockEnabled = config.cropAspectRatioLockEnabled
+            vc.aspectRatioLockDimensionSwapEnabled = false
             vc.delegate = self
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
@@ -322,7 +337,7 @@ open class GTCameraViewController: UIViewController {
         }
     }
     
-    func firstCropImage() {
+    func firstCropImage(_ viewController:UIViewController? = nil) {
         if config.cropEnabled {
             if selectedImage == nil { return }
             let vc = TOCropViewController(image: selectedImage!)
@@ -334,9 +349,11 @@ open class GTCameraViewController: UIViewController {
             vc.aspectRatioPickerButtonHidden = config.cropAspectRaitoPickerButtonHidden
             vc.resetButtonHidden = config.cropResetButtonHidden
             vc.rotateButtonsHidden = config.cropRotateButtonsHidden
+            vc.aspectRatioLockEnabled = config.cropAspectRatioLockEnabled
             vc.delegate = self
+            
             vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
+            (viewController ?? self).present(vc, animated: true, completion: nil)
         } else {
             secondPreviewImage()
         }
@@ -421,10 +438,14 @@ extension GTCameraViewController : UINavigationControllerDelegate {
 
 extension GTCameraViewController : UIImagePickerControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        self.selectedImage = image
+        self.firstCropImage(picker)
+/*
         picker.dismiss(animated: false) {
             guard let image = info[.originalImage] as? UIImage else { return }
             self.selectedImage = image
-            self.firstCropImage()
         }
+*/
     }
 }
