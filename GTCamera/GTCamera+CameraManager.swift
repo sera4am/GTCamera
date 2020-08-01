@@ -213,9 +213,7 @@ class GTCamera_CameraManager: NSObject {
     func takePhoto() {
         let settings = AVCapturePhotoSettings()
         settings.flashMode = flashMode
-//        settings.isAutoRedEyeReductionEnabled = true
-//        settings.isHighResolutionPhotoEnabled = true
-        
+        settings.isAutoStillImageStabilizationEnabled = true
         guard let output = captureSession?.outputs.first as? AVCapturePhotoOutput else { return }
         guard let orientation = previewLayer?.connection?.videoOrientation else { return }
         output.connection(with: AVMediaType.video)?.videoOrientation = orientation
