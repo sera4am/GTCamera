@@ -47,6 +47,8 @@ class GTCamera_CameraManager: NSObject {
     var captureSession:AVCaptureSession? = nil
     var previewLayer:AVCaptureVideoPreviewLayer? = nil
     
+    var baseZoomFactor:CGFloat = 1.0
+    
     private var keyValueObservations = [NSKeyValueObservation]()
     
     init(_ gtCamera:GTCameraViewController, _ viewController:GTCamera_CameraViewController) {
@@ -91,12 +93,35 @@ class GTCamera_CameraManager: NSObject {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onPreviewTapped(_:)))
         preview.addGestureRecognizer(tapGesture)
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(onPreviewPinch(_:)))
+        preview.addGestureRecognizer(pinchGesture)
     }
     
     @objc func onPreviewTapped(_ sender:Any?) {
         guard let gesture = sender as? UIGestureRecognizer else { return }
         let point = gesture.location(in: preview)
         focusPoint = point
+    }
+    
+    @objc func onPreviewPinch(_ sender:UIPinchGestureRecognizer) {
+        if currentDevice == nil { return }
+        
+        if sender.state == .began {
+            baseZoomFactor = currentDevice!.videoZoomFactor
+        }
+        
+        var zoom:CGFloat = baseZoomFactor * sender.scale
+        if zoom < currentDevice!.minAvailableVideoZoomFactor { zoom = currentDevice!.minAvailableVideoZoomFactor }
+        if zoom > currentDevice!.maxAvailableVideoZoomFactor { zoom = currentDevice!.maxAvailableVideoZoomFactor }
+        
+        do {
+            try currentDevice?.lockForConfiguration()
+            currentDevice?.ramp(toVideoZoomFactor: zoom, withRate: 32.0)
+            currentDevice?.unlockForConfiguration()
+        } catch {
+            print("Failed to change zoom factor.")
+        }
     }
     
     func updateView() {
