@@ -13,7 +13,7 @@ import AVFoundation
 import TOCropViewController
 
 public protocol GTCameraDelegate {
-    func gtCameraOn(selectLocalImage gtCamera:GTCameraViewController, image:UIImage?, url:URL?, mode:GTCameraViewController.ViewType)
+    func gtCameraOn(selectLocalImage viewController:UIViewController, image:UIImage?, url:URL?, mode:GTCameraViewController.ViewType)
 }
 
 open class GTCameraViewController: UIViewController {
@@ -332,7 +332,7 @@ open class GTCameraViewController: UIViewController {
             present(vc, animated: true, completion: nil)
         } else {
             selectedImage = photo
-            secondPreviewImage()
+            secondPreviewImage(nil)
         }
     }
     
@@ -354,15 +354,15 @@ open class GTCameraViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             (viewController ?? self).present(vc, animated: true, completion: nil)
         } else {
-            secondPreviewImage()
+            secondPreviewImage(viewController)
         }
     }
     
-    func secondPreviewImage(_ animated:Bool = true) {
+    func secondPreviewImage(_ viewController:UIViewController? = nil, _ animated:Bool = true) {
         if selectedImage == nil { return }
         
         if !config.useThisPreviewEnabled {
-            delegate?.gtCameraOn(selectLocalImage: self, image: selectedImage, url: selectedUrl, mode: mode)
+            delegate?.gtCameraOn(selectLocalImage: viewController ?? self, image: selectedImage, url: selectedUrl, mode: mode)
             return
         }
         
@@ -371,7 +371,7 @@ open class GTCameraViewController: UIViewController {
             vc.delegate = self
             vc.dataSource = self
             vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
+            (viewController ?? self).present(vc, animated: true, completion: nil)
         }
     }
 }
@@ -381,7 +381,7 @@ extension GTCameraViewController : TOCropViewControllerDelegate {
         cropViewController.dismiss(animated: false, completion: nil)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
         self.selectedImage = image
-        self.secondPreviewImage(false)
+        self.secondPreviewImage(self, false)
     }
 }
 
@@ -440,11 +440,5 @@ extension GTCameraViewController : UIImagePickerControllerDelegate {
         guard let image = info[.originalImage] as? UIImage else { return }
         self.selectedImage = image
         self.firstCropImage(picker)
-/*
-        picker.dismiss(animated: false) {
-            guard let image = info[.originalImage] as? UIImage else { return }
-            self.selectedImage = image
-        }
-*/
     }
 }

@@ -185,7 +185,7 @@ extension GTCamera_AwsS3ViewController : UICollectionViewDelegate {
         guard let image = cell.imageView.image else { return }
         gtCamera.selectedImage = image
         gtCamera.selectedUrl = cell.url
-        gtCamera.secondPreviewImage(true)
+        gtCamera.secondPreviewImage(self, true)
     }
 }
 

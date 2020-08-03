@@ -72,6 +72,18 @@ class ViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
+    
+    func closeViewController(_ viewController:UIViewController, _ animated:Bool = true) {
+        if viewController.presentingViewController != nil {
+            closeViewController(viewController, animated)
+        } else {
+            if self.presentingViewController == viewController {
+                viewController.dismiss(animated: animated, completion: nil)
+            } else {
+                self.navigationController?.popToViewController(self, animated: animated)
+            }
+        }
+    }
 }
 
 extension ViewController : GTCameraPreviewViewControllerDelegate {
@@ -122,24 +134,24 @@ extension ViewController : GTCameraPreviewViewControllerDataSource {
 
 extension ViewController : GTCameraDelegate {
     
-    func gtCameraOn(selectLocalImage gtCamera: GTCameraViewController, image: UIImage?, url: URL?, mode: GTCameraViewController.ViewType) {
-        gtCamera.dismiss(animated: true) {
-            var message:String = ""
-            switch mode {
-            case .Library:
-                message = "Get from library"
-                break
-            case .Camera:
-                message = "Get from take photo"
-                break
-            case .AwsS3:
-                message = "Get from aws s3"
-                break
-            }
-            let ac = UIAlertController(title: "Image selected", message: message, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(ac, animated: true, completion: nil)
+    func gtCameraOn(selectLocalImage viewController: UIViewController, image: UIImage?, url: URL?, mode: GTCameraViewController.ViewType) {
+        closeViewController(viewController, false)
+        var message:String = ""
+        switch mode {
+        case .Library:
+            message = "Get from library"
+            break
+        case .Camera:
+            message = "Get from take photo"
+            break
+        case .AwsS3:
+            message = "Get from aws s3"
+            break
         }
+        let ac = UIAlertController(title: "Image selected", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(ac, animated: true, completion: nil)
     }
+    
 }
 
