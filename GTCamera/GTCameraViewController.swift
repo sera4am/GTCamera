@@ -89,6 +89,7 @@ open class GTCameraViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barStyle = .black
         initView()
     }
     
@@ -362,7 +363,7 @@ open class GTCameraViewController: UIViewController {
         if selectedImage == nil { return }
         
         if !config.useThisPreviewEnabled {
-            delegate?.gtCameraOn(selectLocalImage: viewController ?? self, image: selectedImage, url: selectedUrl, mode: mode)
+            delegate?.gtCameraOn(selectLocalImage: self, image: selectedImage, url: selectedUrl, mode: mode)
             return
         }
         

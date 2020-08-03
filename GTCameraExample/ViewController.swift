@@ -17,11 +17,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onSimple(_ sender: Any) {
-        let vc = GTCameraViewController()
         GTCamera_Config.Default.cropAspectRatioLockEnabled = true
         GTCamera_Config.Default.cropAspectRaitoPreset = .preset4x3
         GTCamera_Config.Default.cropEnableAspectRaitoSelector = false
+        let vc = GTCameraViewController()
         vc.delegate = self
+//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true, completion: nil)
     }
     
@@ -133,25 +134,26 @@ extension ViewController : GTCameraPreviewViewControllerDataSource {
 
 
 extension ViewController : GTCameraDelegate {
-    
     func gtCameraOn(selectLocalImage viewController: UIViewController, image: UIImage?, url: URL?, mode: GTCameraViewController.ViewType) {
-        closeViewController(viewController, false)
-        var message:String = ""
-        switch mode {
-        case .Library:
-            message = "Get from library"
-            break
-        case .Camera:
-            message = "Get from take photo"
-            break
-        case .AwsS3:
-            message = "Get from aws s3"
-            break
+        viewController.dismiss(animated: true) {
+            var message:String = ""
+            switch mode {
+            case .Library:
+                message = "Get from library"
+                break
+            case .Camera:
+                message = "Get from take photo"
+                break
+            case .AwsS3:
+                message = "Get from aws s3"
+                break
+            }
+            let ac = UIAlertController(title: "Image selected", message: message, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(ac, animated: true, completion: nil)
         }
-        let ac = UIAlertController(title: "Image selected", message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(ac, animated: true, completion: nil)
+//        closeViewController(viewController, false)
+
     }
-    
 }
 
