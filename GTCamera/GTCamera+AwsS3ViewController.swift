@@ -193,7 +193,7 @@ extension GTCamera_AwsS3ViewController : GTCamera_ImagePreviewViewControllerDele
     func ImagePreviewView(onContinue viewController: GTCamera_ImagePreviewViewController, image: UIImage?, url: URL?) {
         gtCamera.selectedImage = image
         gtCamera.selectedUrl = url
-        gtCamera.secondPreviewImage()
+        gtCamera.secondPreviewImage(viewController)
     }
 }
 
