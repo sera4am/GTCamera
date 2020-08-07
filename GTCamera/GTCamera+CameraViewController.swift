@@ -227,21 +227,26 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
     
     private func updateView() {
         
-        switch manager.flashMode {
-        case .auto:
-            flashImageView.image = gtCamera.config.cameraFlashButtonAutoIcon
-            flashLabel.text = gtCamera.translation.buttonTitleFlashAuto
-            break
-        case .on:
-            flashImageView.image = gtCamera.config.cameraFlashButtonOnIcon
-            flashLabel.text = gtCamera.translation.buttonTitleFlashOn
-            break
-        case .off:
+        if is_iPad() {
             flashImageView.image = gtCamera.config.cameraFlashButtonOffIcon
             flashLabel.text = gtCamera.translation.buttonTitleFlashOff
-            break
-        @unknown default:
-            break
+        } else {
+            switch manager.flashMode {
+            case .auto:
+                flashImageView.image = gtCamera.config.cameraFlashButtonAutoIcon
+                flashLabel.text = gtCamera.translation.buttonTitleFlashAuto
+                break
+            case .on:
+                flashImageView.image = gtCamera.config.cameraFlashButtonOnIcon
+                flashLabel.text = gtCamera.translation.buttonTitleFlashOn
+                break
+            case .off:
+                flashImageView.image = gtCamera.config.cameraFlashButtonOffIcon
+                flashLabel.text = gtCamera.translation.buttonTitleFlashOff
+                break
+            @unknown default:
+                break
+            }
         }
         
         switch manager.position {

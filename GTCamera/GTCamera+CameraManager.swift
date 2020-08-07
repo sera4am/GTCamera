@@ -212,7 +212,11 @@ class GTCamera_CameraManager: NSObject {
     
     func takePhoto() {
         let settings = AVCapturePhotoSettings()
-        settings.flashMode = flashMode
+        if is_iPad() || !(captureDevice?.hasFlash ?? false) {
+            settings.flashMode = .off
+        } else {
+            settings.flashMode = flashMode
+        }
         settings.isAutoStillImageStabilizationEnabled = true
         guard let output = captureSession?.outputs.first as? AVCapturePhotoOutput else { return }
         guard let orientation = previewLayer?.connection?.videoOrientation else { return }
