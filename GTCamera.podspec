@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GTCamera"
-  spec.version      = "1.0.14"
+  spec.version      = "1.0.15"
   spec.summary      = "Simple image selection view controller with camera library and aws s3 bucket images for swift ios13"
 
   spec.description  = <<-DESC

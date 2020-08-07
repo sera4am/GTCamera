@@ -212,7 +212,7 @@ class GTCamera_CameraManager: NSObject {
     
     func takePhoto() {
         let settings = AVCapturePhotoSettings()
-        if is_iPad() || !(captureDevice?.hasFlash ?? false) {
+        if is_iPad() || !(currentDevice?.hasFlash ?? false) {
             settings.flashMode = .off
         } else {
             settings.flashMode = flashMode
