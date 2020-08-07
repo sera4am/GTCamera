@@ -87,137 +87,119 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
         
         view.addSubview(previewView)
         view.addSubview(shotView)
-        view.addSubview(flashView)
-        view.addSubview(positionView)
-        
-        view.addConstraints([
-            NSLayoutConstraint(item: previewView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: previewView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: previewView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: previewView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        shotView.addConstraints([
-            NSLayoutConstraint(item: shotView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 80),
-            NSLayoutConstraint(item: shotView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 80)
-        ])
-        view.addConstraints([
-            NSLayoutConstraint(item: view!, attribute: .bottom, relatedBy: .equal, toItem: shotView, attribute: .bottom, multiplier: 1, constant: 16),
-            NSLayoutConstraint(item: shotView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
-        ])
         shotView.addSubview(shotImageView)
         shotView.addSubview(shotButton)
-        shotView.addConstraints([
-            NSLayoutConstraint(item: shotImageView, attribute: .top, relatedBy: .equal, toItem: shotView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotView, attribute: .bottom, relatedBy: .equal, toItem: shotImageView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotImageView, attribute: .leading, relatedBy: .equal, toItem: shotView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotView, attribute: .trailing, relatedBy: .equal, toItem: shotImageView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        shotView.addConstraints([
-            NSLayoutConstraint(item: shotButton, attribute: .top, relatedBy: .equal, toItem: shotView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotView, attribute: .bottom, relatedBy: .equal, toItem: shotButton, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotButton, attribute: .leading, relatedBy: .equal, toItem: shotView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: shotView, attribute: .trailing, relatedBy: .equal, toItem: shotButton, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        shotButton.backgroundColor = .backgroundClearColor
-        shotView.bringSubviewToFront(shotButton)
-        
+        view.addSubview(positionView)
         positionView.addSubview(positionImageView)
         positionView.addSubview(positionButton)
         positionView.addSubview(positionLabel)
-        positionView.addConstraints([
-            NSLayoutConstraint(item: positionView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 56),
-            NSLayoutConstraint(item: positionView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 56)
-        ])
-        view.addConstraints([
-            NSLayoutConstraint(item: positionView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 16),
-            NSLayoutConstraint(item: view!, attribute: .trailing, relatedBy: .equal, toItem: positionView, attribute: .trailing, multiplier: 1, constant: 16)
-        ])
+        view.addSubview(flashView)
+        flashView.addSubview(flashButton)
+        flashView.addSubview(flashLabel)
+        flashView.addSubview(flashImageView)
+
+        shotButton.backgroundColor = .backgroundClearColor
+        shotView.bringSubviewToFront(shotButton)
         positionView.backgroundColor = .clear
-        positionLabel.addConstraints([
-            NSLayoutConstraint(item: positionLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 24)
-        ])
-        positionView.addConstraints([
-            NSLayoutConstraint(item: positionView, attribute: .bottom, relatedBy: .equal, toItem: positionLabel, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionLabel, attribute: .leading, relatedBy: .equal, toItem: positionView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionView, attribute: .trailing, relatedBy: .equal, toItem: positionLabel, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        positionView.addConstraints([
-            NSLayoutConstraint(item: positionImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 32),
-            NSLayoutConstraint(item: positionImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 32)
-        ])
-        positionView.addConstraints([
-            NSLayoutConstraint(item: positionImageView, attribute: .top, relatedBy: .equal, toItem: positionView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionImageView, attribute: .centerX, relatedBy: .equal, toItem: positionView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionImageView, attribute: .bottom, relatedBy: .equal, toItem: positionLabel, attribute: .top, multiplier: 1, constant: 0)
-        ])
-        positionView.addConstraints([
-            NSLayoutConstraint(item: positionButton, attribute: .top, relatedBy: .equal, toItem: positionView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionView, attribute: .bottom, relatedBy: .equal, toItem: positionButton, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionButton, attribute: .leading, relatedBy: .equal, toItem: positionView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: positionView, attribute: .trailing, relatedBy: .equal, toItem: positionButton, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         positionImageView.tintColor = .white
         positionView.backgroundColor = .backgroundClearColor
         positionButton.addTarget(self, action: #selector(onPositionButton(_:)), for: .touchUpInside)
         positionLabel.font = gtCamera.config.cameraButtonLabelFont
         positionLabel.textColor = .white
         positionLabel.textAlignment = .center
-        
-        flashView.addSubview(flashButton)
-        flashView.addSubview(flashLabel)
-        flashView.addSubview(flashImageView)
-        flashView.addConstraints([
-            NSLayoutConstraint(item: flashView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 56),
-            NSLayoutConstraint(item: flashView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 56)
-        ])
-        view.addConstraints([
-            NSLayoutConstraint(item: flashView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 16),
-            NSLayoutConstraint(item: flashView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 16)
-        ])
         flashView.backgroundColor = .clear
-        flashLabel.addConstraints([
-            NSLayoutConstraint(item: flashLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 24)
-        ])
-        flashView.addConstraints([
-            NSLayoutConstraint(item: flashView, attribute: .bottom, relatedBy: .equal, toItem: flashLabel, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashLabel, attribute: .leading, relatedBy: .equal, toItem: flashView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashView, attribute: .trailing, relatedBy: .equal, toItem: flashLabel, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        flashImageView.addConstraints([
-            NSLayoutConstraint(item: flashImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: 32),
-            NSLayoutConstraint(item: flashImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 32)
-        ])
-        flashView.addConstraints([
-            NSLayoutConstraint(item: flashImageView, attribute: .top, relatedBy: .equal, toItem: flashView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashImageView, attribute: .centerX, relatedBy: .equal, toItem: flashView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashImageView, attribute: .bottom, relatedBy: .equal, toItem: flashLabel, attribute: .top, multiplier: 1, constant: 0)
-        ])
-        flashView.addConstraints([
-            NSLayoutConstraint(item: flashButton, attribute: .top, relatedBy: .equal, toItem: flashView, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashView, attribute: .bottom, relatedBy: .equal, toItem: flashButton, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashButton, attribute: .leading, relatedBy: .equal, toItem: flashView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: flashView, attribute: .trailing, relatedBy: .equal, toItem: flashButton, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         flashImageView.tintColor = .white
         flashView.backgroundColor = .backgroundClearColor
         flashButton.addTarget(self, action: #selector(onFlashButton(_:)), for: .touchUpInside)
         flashLabel.font = gtCamera.config.cameraButtonLabelFont
         flashLabel.textColor = .white
         flashLabel.textAlignment = .center
-
         shotImageView.image = gtCamera.config.cameraCameraButtonIcon
         shotImageView.tintColor = .white
-        
         flashView.bringSubviewToFront(flashButton)
         shotView.bringSubviewToFront(shotButton)
-        
         shotButton.addTarget(self, action: #selector(onShotButtonTouchDown(_:)), for: .touchDown)
         shotButton.addTarget(self, action: #selector(onShotButtonTouchUp(_:)), for: .touchDragOutside)
         shotButton.addTarget(self, action: #selector(onShotButtonTouchUp(_:)), for: .touchUpOutside)
         shotButton.addTarget(self, action: #selector(onShotButtonTouchUpInside(_:)), for: .touchUpInside)
-        
+
+        NSLayoutConstraint.activate([
+            // preview view
+            previewView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: previewView.bottomAnchor),
+            previewView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: previewView.trailingAnchor),
+            
+            // shot view
+            shotView.widthAnchor.constraint(equalToConstant: 80),
+            shotView.heightAnchor.constraint(equalToConstant: 80),
+            view.bottomAnchor.constraint(equalTo: shotView.bottomAnchor, constant: 16),
+            shotView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            // shot image view
+            shotImageView.topAnchor.constraint(equalTo: shotView.topAnchor),
+            shotView.bottomAnchor.constraint(equalTo: shotImageView.bottomAnchor),
+            shotImageView.leadingAnchor.constraint(equalTo: shotView.leadingAnchor),
+            shotView.trailingAnchor.constraint(equalTo: shotImageView.trailingAnchor),
+            
+            // shot button
+            shotButton.topAnchor.constraint(equalTo: shotView.topAnchor),
+            shotView.bottomAnchor.constraint(equalTo: shotButton.bottomAnchor),
+            shotButton.leadingAnchor.constraint(equalTo: shotView.leadingAnchor),
+            shotView.trailingAnchor.constraint(equalTo: shotButton.trailingAnchor),
+            
+            // position view
+            positionView.widthAnchor.constraint(equalToConstant: 56),
+            positionView.heightAnchor.constraint(equalToConstant: 56),
+            positionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            view.trailingAnchor.constraint(equalTo: positionView.trailingAnchor, constant: 16),
+            
+            // position label
+            positionLabel.heightAnchor.constraint(equalToConstant: 24),
+            positionView.bottomAnchor.constraint(equalTo: positionLabel.bottomAnchor),
+            positionLabel.leadingAnchor.constraint(equalTo: positionView.leadingAnchor),
+            positionView.trailingAnchor.constraint(equalTo: positionLabel.trailingAnchor),
+            
+            // position image view
+            positionImageView.widthAnchor.constraint(equalToConstant: 32),
+            positionImageView.heightAnchor.constraint(equalToConstant: 32),
+            positionImageView.topAnchor.constraint(equalTo: positionView.topAnchor),
+            positionImageView.centerXAnchor.constraint(equalTo: positionView.centerXAnchor),
+//            positionImageView.bottomAnchor.constraint(equalTo: positionLabel.topAnchor),
+            
+            // position buttoon
+            positionButton.topAnchor.constraint(equalTo: positionView.topAnchor),
+            positionView.bottomAnchor.constraint(equalTo: positionButton.bottomAnchor),
+            positionButton.leadingAnchor.constraint(equalTo: positionView.leadingAnchor),
+            positionView.trailingAnchor.constraint(equalTo: positionButton.trailingAnchor),
+            
+            // flash view
+            flashView.widthAnchor.constraint(equalToConstant: 56),
+            flashView.heightAnchor.constraint(equalToConstant: 56),
+            flashView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            flashView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            
+            // flash label
+            flashLabel.heightAnchor.constraint(equalToConstant: 24),
+            flashView.bottomAnchor.constraint(equalTo: flashLabel.bottomAnchor),
+            flashLabel.leadingAnchor.constraint(equalTo: flashView.leadingAnchor),
+            flashView.trailingAnchor.constraint(equalTo: flashLabel.trailingAnchor),
+          
+            // flash iamge view
+            flashImageView.widthAnchor.constraint(equalToConstant: 32),
+            flashImageView.heightAnchor.constraint(equalToConstant: 32),
+            flashImageView.topAnchor.constraint(equalTo: flashView.topAnchor),
+            flashImageView.centerXAnchor.constraint(equalTo: flashView.centerXAnchor),
+//            flashImageView.bottomAnchor.constraint(equalTo: flashLabel.topAnchor),
+            
+            // flash button
+            flashButton.topAnchor.constraint(equalTo: flashView.topAnchor),
+            flashView.bottomAnchor.constraint(equalTo: flashButton.bottomAnchor),
+            flashButton.leadingAnchor.constraint(equalTo: flashView.leadingAnchor),
+            flashView.trailingAnchor.constraint(equalTo: flashButton.trailingAnchor),
+        ])
+
         view.addSubview(focusSquareView)
-        
         view.bringSubviewToFront(flashView)
         view.bringSubviewToFront(shotView)
         view.bringSubviewToFront(focusSquareView)
@@ -227,10 +209,10 @@ class GTCamera_CameraViewController: GTCamera_ViewController {
     
     private func updateView() {
         
-        if is_iPad() {
-            flashImageView.image = gtCamera.config.cameraFlashButtonOffIcon
-            flashLabel.text = gtCamera.translation.buttonTitleFlashOff
+        if is_iPad() || !(manager.currentDevice?.hasFlash ?? false) {
+            flashView.isHidden = true
         } else {
+            flashView.isHidden = false
             switch manager.flashMode {
             case .auto:
                 flashImageView.image = gtCamera.config.cameraFlashButtonAutoIcon
